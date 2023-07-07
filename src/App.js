@@ -1,10 +1,12 @@
-import NavAction from "./atoms/NavAction"
-import { FriendsIcon } from "./assets/icons"
+import NavBar from "./organisms/NavBar"
+
 
 const App = () => {
+
+
   return (
     <div>
-      <NavAction icon={<FriendsIcon />}/>
+      <NavBar />
     </div>
   )
 }
