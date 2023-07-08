@@ -26,7 +26,6 @@ const NavBar = () => {
     return (
         <div className={classes.nav}>
             <FacebookLogo />
-            <InputSearchLogo />
             {Actions.map((item, index) => {
                 return <NavAction icon={<item.icon />} />
             })}
