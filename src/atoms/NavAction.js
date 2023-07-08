@@ -11,7 +11,7 @@ const useStyles = createUseStyles({
         alignItems:'center',
         cursor:'pointer',
         '&:hover':{
-            backgroundColor:'lightgray'
+            backgroundColor:'#F2F2F2'
         }
     }
 })
