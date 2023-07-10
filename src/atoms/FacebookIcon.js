@@ -4,10 +4,19 @@ import React from 'react'
 
 const Logo = {icon:FacebookIcon}
 
+const useStyles = createUseStyles({
+  icon:{
+    marginRight:580,
+    cursor:'pointer'
+  }
+})
+
 const FacebookLogo = () => {
 
+  const classes = useStyles()
+
   return (
-    <div>
+    <div className={classes.icon}>
         <Logo.icon />
     </div>
   )
