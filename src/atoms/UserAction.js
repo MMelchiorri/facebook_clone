@@ -8,8 +8,12 @@ const useStyles = createUseStyles({
     height:20,
     borderRadius:20,
     display:"flex",
-    alignItems:'center'
-
+    alignItems:'center',
+    '&:hover':{
+      backgroundColor:'#c0c0c0',
+      opacity:0.6,
+      cursor:'pointer'
+    }
   }
 })
 

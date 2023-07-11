@@ -35,7 +35,7 @@ const NavBar = () => {
         <div className={classes.nav}>
             <FacebookLogo />
             {NavActions.map((item, index) => {
-                return <NavAction icon={<item.icon />} />
+                return <NavAction icon={<item.icon />} onClick={ ()=> {console.log(`sono in `+ item.icon)}} />
             })}
             <div className={classes.userSection}>
                 {UserActions.map((item, index) => {
