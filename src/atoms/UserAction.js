@@ -2,7 +2,6 @@ import { createUseStyles } from "react-jss"
 
 const useStyles = createUseStyles({
   userAction: {
-    marginLeft:9,
     padding:10,
     backgroundColor:'#F0F2F5',
     height:20,

@@ -1,7 +1,6 @@
-import { GroupsIcon, FriendsIcon, PlayIcon, HomeIcon, MessengerIcon, ProfileIcon, NotificationIcon, MenuIcon } from "../assets/icons"
+import { GroupsIcon, FriendsIcon, PlayIcon, HomeIcon, MessengerIcon, ProfileIcon, NotificationIcon, MenuIcon, FacebookIcon } from "../assets/icons"
 import NavAction from "../atoms/NavAction"
 import { UserAction } from "../atoms/UserAction"
-import FacebookLogo from "../atoms/FacebookIcon"
 import { createUseStyles } from 'react-jss'
 
 const NavActions = [{ icon: HomeIcon, route: 'home' }, { icon: FriendsIcon, route: 'friends' }, { icon: PlayIcon, route: 'watch' }]
@@ -10,19 +9,26 @@ export const UserActions = [{ icon: MenuIcon, route: 'menu' }, { icon: Messenger
 
 const useStyles = createUseStyles({
     nav: {
-        padding: 8,
-        maxHeight: 40,
+        padding: 4,
         display: 'flex',
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#FFFFFF',
         boxShadow: '0 1px 2px 0 rgba(0,0,0,.2)'
 
     },
 
-    userSection:{
-        display:"flex",
-        marginLeft:700,
+    navItems: {
+        display: 'flex',
+        justifyContent:'center',
+        gap:24,
+        flex:1,
+        height:'100%'
+    },
+
+    userSection: {
+        display: "flex",
+        gap:16
     }
 })
 
@@ -33,10 +39,12 @@ const NavBar = () => {
 
     return (
         <div className={classes.nav}>
-            <FacebookLogo />
-            {NavActions.map((item, index) => {
-                return <NavAction icon={<item.icon />} onClick={ ()=> {console.log(`sono in `+ item.icon)}} />
-            })}
+            <FacebookIcon />
+            <span className={classes.navItems}>
+                {NavActions.map((item, index) => {
+                    return <NavAction icon={<item.icon />} onClick={() => { console.log(`sono in ` + item.icon) }} />
+                })}
+            </span>
             <div className={classes.userSection}>
                 {UserActions.map((item, index) => {
                     return <UserAction icon={<item.icon />} />
