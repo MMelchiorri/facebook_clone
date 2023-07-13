@@ -1,4 +1,4 @@
-import { GroupsIcon, FriendsIcon, PlayIcon, HomeIcon, MessengerIcon, ProfileIcon, NotificationIcon, MenuIcon, FacebookIcon } from "../assets/icons"
+import { FriendsIcon, PlayIcon, HomeIcon, MessengerIcon, ProfileIcon, NotificationIcon, MenuIcon, FacebookIcon } from "../assets/icons"
 import NavAction from "../atoms/NavAction"
 import { UserAction } from "../atoms/UserAction"
 import { createUseStyles } from 'react-jss'
@@ -42,7 +42,7 @@ const NavBar = () => {
             <FacebookIcon />
             <span className={classes.navItems}>
                 {NavActions.map((item, index) => {
-                    return <NavAction icon={<item.icon />} onClick={() => { console.log(`sono in ` + item.icon) }} />
+                    return <NavAction icon={<item.icon />} />
                 })}
             </span>
             <div className={classes.userSection}>

@@ -1,6 +1,5 @@
 
 import { createUseStyles } from 'react-jss'
-import { useState } from 'react'
 
 const useStyles = createUseStyles({
     navAction: {
@@ -11,7 +10,7 @@ const useStyles = createUseStyles({
         alignItems: 'center',
         cursor: 'pointer',
         '&:hover': {
-            backgroundColor: '#F2F2F2',
+            backgroundColor: '#E4E6E9',
             borderRadius: 8,
         }
     }
