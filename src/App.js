@@ -1,5 +1,4 @@
-import NavBar from "./organisms/NavBar"
-import SideBar from "./organisms/SideBar"
+import Home from "./pages/Home"
 
 
 const App = () => {
@@ -7,8 +6,7 @@ const App = () => {
 
   return (
     <div>
-      <NavBar />
-      <SideBar />
+      <Home />
     </div>
   )
 }

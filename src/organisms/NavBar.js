@@ -42,12 +42,12 @@ const NavBar = () => {
             <FacebookIcon />
             <span className={classes.navItems}>
                 {NavActions.map((item, index) => {
-                    return <NavAction icon={<item.icon />} />
+                    return <NavAction key={index} icon={<item.icon />} />
                 })}
             </span>
             <div className={classes.userSection}>
                 {UserActions.map((item, index) => {
-                    return <UserAction icon={<item.icon />} />
+                    return <UserAction key={index} icon={<item.icon />} />
                 })}
             </div>
         </div>
