@@ -1,5 +1,6 @@
 import { createUseStyles } from "react-jss"
 import { useState } from "react"
+import { Popup } from "../organisms/Popup"
 
 const useStyles = createUseStyles({
   userAction: {
@@ -24,17 +25,16 @@ const useStyles = createUseStyles({
   popup:{
     position:'fixed',
     right:24,
-    top:80,
     zIndex:10,
     backgroundColor:'white',
     boxShadow: '0 1px 2px 0 rgba(0,0,0,.2)',
-    width:200
+    width:400
   }
 })
 
 
-export const UserAction = ({ icon }) => {
-
+export const UserAction = ({ icon,index }) => {
+  
   const [isOpen, setIsOpen] = useState(false)
   const classes = useStyles()
   return (
@@ -44,7 +44,7 @@ export const UserAction = ({ icon }) => {
       </div>
       {isOpen && <div>
         <div className={classes.overlay} onClick={()=> setIsOpen(false)} />
-        <div className={classes.popup}>sono in popup  </div>
+        <div><Popup styles={classes.popup}index={index}/></div>
       </div>}
     </div>
 

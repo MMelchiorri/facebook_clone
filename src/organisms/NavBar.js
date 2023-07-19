@@ -47,7 +47,7 @@ const NavBar = () => {
             </span>
             <div className={classes.userSection}>
                 {UserActions.map((item, index) => {
-                    return <UserAction key={index} icon={<item.icon />} />
+                    return <UserAction key={index} index={index} icon={<item.icon />} />
                 })}
             </div>
         </div>
