@@ -24,9 +24,10 @@ const useStyles = createUseStyles({
   },
   popup:{
     position:'fixed',
-    right:24,
+    top:100,
+    right:80,
     zIndex:10,
-    backgroundColor:'white',
+    backgroundColor:'F7F8FA',
     boxShadow: '0 1px 2px 0 rgba(0,0,0,.2)',
     width:400
   }
@@ -36,6 +37,8 @@ const useStyles = createUseStyles({
 export const UserAction = ({ icon,index }) => {
   
   const [isOpen, setIsOpen] = useState(false)
+  const [isOpenForm,setIsOpenForm] =useState(false)
+
   const classes = useStyles()
   return (
     <div className={classes.wrapper}>
@@ -43,8 +46,8 @@ export const UserAction = ({ icon,index }) => {
         {icon}
       </div>
       {isOpen && <div>
-        <div className={classes.overlay} onClick={()=> setIsOpen(false)} />
-        <div><Popup styles={classes.popup}index={index}/></div>
+       {<div className={classes.overlay} onClick={()=> setIsOpen(false)} />}
+        <div><Popup styles={classes.popup}index={index} callback={()=>{setIsOpenForm(!setIsOpen)}}/></div>
       </div>}
     </div>
 
