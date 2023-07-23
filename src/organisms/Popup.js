@@ -68,6 +68,9 @@ const useStyles = createUseStyles({
         top: 40,
         left: 30,
     },
+    wrapper_popup:{
+        display:'flex'
+    },
     div_d: {
         width: 200,
         height: 400,
@@ -96,9 +99,9 @@ export const Popup = ({ index, styles, callBack }) => {
                             <input className={classes.search_menu} {...register("search")} placeholder="Cerca Menu" />
                         </form>
                         <span className={classes.social}>Social</span>
-                        <div>
+                        <div className>
                         {array.map((element,index)=>{
-                            console.log(element)
+                            
                         })}
                     </div>
                         </div>
