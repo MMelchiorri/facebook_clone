@@ -2,25 +2,24 @@
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
-    navAction:{
-        padding: 24,
-        maxWidth:80,
-        maxHeight:60,
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center',
-        cursor:'pointer',
-        '&:hover':{
-            backgroundColor:'lightgray'
+    navAction: {
+        height:'100%',
+        width:80,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        cursor: 'pointer',
+        '&:hover': {
+            backgroundColor: '#E4E6E9',
+            borderRadius: 8,
         }
     }
 })
 
-const NavAction = ({icon}) => {
+const NavAction = ({ icon }) => {
     const classes = useStyles()
-
     return (
-        <div className={classes.navAction}>
+        <div className={classes.navAction} >
             {icon}
         </div>
     )
