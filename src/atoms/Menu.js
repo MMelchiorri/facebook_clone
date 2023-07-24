@@ -22,48 +22,38 @@ const useStyles = createUseStyles({
     menuStyle: {
         position: 'fixed',
         backgroundColor: '#F7F8FA',
-        right: 10,
-        width: 600,
-        height: 600,
+        top:58,
+        right: 2,
+        width: 700,
+        height: '85%',
         borderRadius: 20,
-    },
-    chatStyle: {
-        position: 'fixed',
-        backgroundColor: 'white',
-        right: 10,
-        width: 300,
-        height: 500,
-        borderRadius: 20,
-    },
-    notificaStyle: {
-        position: 'fixed',
-        backgroundColor: 'white',
-        right: 10,
-        width: 300,
-        height: 500,
-        borderRadius: 20,
-    },
-    wrapper: {
-        display: 'flex',
-        justifyContent: 'space-evenly',
-        position: 'relative',
-        height: 'auto'
-    },
-    div_u: {
-        width: 300,
-        backgroundColor: '#FFFFFF',
-
-
     },
     title: {
         position: 'relative',
         left: 30,
     },
+
+    wrapper: {
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        position: 'relative',
+        height:'85%'
+
+    },
+
+    div_u: {
+        width: 400,
+        height: 'auto',
+        backgroundColor: '#FFFFFF',
+
+
+    },
+
     search_menu: {
         backgroundColor: '#F7F8FA',
         border: 'none',
         position: 'relative',
-        top: 15,
+        top: 8,
         left: 20,
         width: '85%',
         height: 30,
@@ -73,7 +63,7 @@ const useStyles = createUseStyles({
     social: {
         fontWeight: 'bold',
         position: 'relative',
-        top: 40,
+        top: 20,
         left: 30,
     },
     inner_div: {
@@ -86,7 +76,7 @@ const useStyles = createUseStyles({
         columnGap: 10,
         marginBottom: 20,
         position: 'relative',
-        top: 60,
+        top: 40,
         '&:hover': {
             backgroundColor: '#F2F2F2',
             opacity: 0.6,
@@ -109,7 +99,7 @@ const useStyles = createUseStyles({
         color: 'light-grey'
     },
     div_d: {
-        width: 200,
+        width: 250,
         backgroundColor: '#FFFFFF',
 
     },
@@ -136,23 +126,52 @@ const useStyles = createUseStyles({
 
 })
 
+export const Menu = () => {
+    const classes = useStyles()
+    const { register, handleSubmit } = useForm({
+        defaultValues: {
 
+        }
+    })
+  return (
+        <div className={classes.menuStyle} >
+            <h2 className={classes.title}>Menu</h2>
+            <div className={classes.wrapper}>
+                <div className={classes.div_u}>
+                    <form>
+                        <input className={classes.search_menu} {...register("search")} placeholder="Cerca Menu" />
+                    </form>
+                    <span className={classes.social}>Social</span>
+            
+                        {array_div_u.map((element, index) => {
+                            return (
+                                <div className={classes.wrapper_div_u}>
+                                    <div key={index}>{<element.icon />}</div>
+                                    <div className={classes.warapper_p}>
+                                        <p className={classes.title_sub}>{element.title}</p>
+                                        <p className={classes.paragraph_sub}>{element.paragraph}</p>
+                                    </div>
+                                </div>
 
-export const Popup = ({ index, styles, callBack }) => {
-
-    if (index === 0) {
-
-    }
-    else if (index === 1) {
-        return (
-            <div className={classes.chatStyle}>
-                Chat
+                            )
+                        })}
+               
+                </div>
+                <div className={classes.div_d}>
+                    <h2 className={classes.crea}>Crea</h2>
+                    {array_div_d.map((element, index) => {
+                        return (
+                            <div className={classes.wrapper_div_d}>
+                                <div className={classes.inner_div_d}>
+                                    <div className={classes.icon}>{<element.icon />}</div>
+                                    <p>{element.title}</p>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
-        )
-    } else {
-        return (
-            <div className={classes.notificaStyle}>Notifica</div>
-        )
-    }
+        </div>
+    )
 
 }
