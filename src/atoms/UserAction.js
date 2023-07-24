@@ -37,7 +37,7 @@ const useStyles = createUseStyles({
 export const UserAction = ({ icon,index }) => {
   
   const [isOpen, setIsOpen] = useState(false)
-  const [isOpenForm,setIsOpenForm] =useState(false)
+  const [isOpenForm,setIsOpenForm] =useState([false,false,false])
 
   const classes = useStyles()
   return (
@@ -46,8 +46,7 @@ export const UserAction = ({ icon,index }) => {
         {icon}
       </div>
       {isOpen && <div>
-       {<div className={classes.overlay} onClick={()=> setIsOpen(false)} />}
-        <div><Popup styles={classes.popup}index={index} callback={()=>{setIsOpenForm(!setIsOpen)}}/></div>
+        <div><Popup styles={classes.popup} index={index} onClick={()=>(setIsOpenForm(!isOpenForm[index]))}/></div>
       </div>}
     </div>
 
