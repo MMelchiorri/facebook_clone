@@ -1,7 +1,7 @@
 import { createUseStyles } from "react-jss"
 import { useForm } from "react-hook-form"
 import { useState } from "react"
-import { Events, Feed, FriendIcon, GroupIcon, News, Pages, Publish, Story } from "../assets/icons"
+import { Events, Feed, FriendIcon, GroupIcon, ImportantEvent, News, Pages, Publish, Reel, Story } from "../assets/icons"
 
 const array_div_u = [
     { icon: Events, title: "Eventi", paragraph: "Organizza o trova eventi e altro da fare online e nelle vicinanze" },
@@ -15,6 +15,8 @@ const array_div_u = [
 const array_div_d = [
     { icon: Publish, title: "Pubblica" },
     { icon: Story, title: "Storia" },
+    {icon:Reel,title:'Reel'},
+    {icon:ImportantEvent,title:'Avvenimento \n Importante'}
 
 ]
 
@@ -79,7 +81,6 @@ const useStyles = createUseStyles({
         top: 40,
         '&:hover': {
             backgroundColor: '#F2F2F2',
-            opacity: 0.6,
             cursor: 'pointer',
             borderRadius: 2,
             height: 'auto'
@@ -109,18 +110,30 @@ const useStyles = createUseStyles({
     },
     wrapper_div_d: {
         position: 'relative',
-        top: 45,
+        top: 10,
         left: 20,
         '& p': {
             margin: 0,
             position: 'relative',
-            left: 10
+            top:5,
+            left: 10,
+            fontSize:14
         }
     },
 
     inner_div_d: {
         display: 'flex',
         position: 'relative',
+        width:180,
+        padding:20,
+        '&:hover':{
+            cursor:'pointer',
+            backgroundColor: '#F2F2F2',
+            height:'auto',
+            width:180,
+            borderRadius:10,
+        }
+ 
     }
 
 
