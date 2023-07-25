@@ -55,12 +55,16 @@ export const UserAction = ({ icon, index }) => {
     switch (index) {
       case 0:
         return <Popup styles={classes.popup} index={index} component={<Menu />}/>
+        break;
       case 1:
         return <Popup styles={classes.popup} index={index} component={<Chat />} />
+        break;
       case 2:
           return <Popup styles={classes.popup} index={index} component={<Notifica />}/>
+          break;
       default:
         return null
+      break;
         
     }
     }
