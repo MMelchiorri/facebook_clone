@@ -8,8 +8,10 @@ const useStyle = createUseStyles({
   wrapper: {
     display: 'flex',
     flexDirection: 'column',
-    flex: 1,
-
+    padding:'16px',
+    backgroundColor:'white',
+    borderRadius:'10px',
+    width:'100%'
   },
   upper:{
 

@@ -4,9 +4,7 @@ const useStyles = createUseStyles({
     wrapper: {
         display: 'flex',
         gap: 8,
-        width: 300,
-        height: 2,
-        padding: 24,
+        padding: 8,
         alignItems: 'center',
         '&:hover': {
             backgroundColor: '#E4E6E9',

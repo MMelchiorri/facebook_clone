@@ -19,8 +19,6 @@ const useStyle = createUseStyles({
 
 
 export const Popup = ({ component,className }) => {
-
-
     const classes = useStyle()
 
     return (<div className={cx(classes.popup,className)}>

@@ -4,10 +4,9 @@ const useStyle = createUseStyles({
     wrapper:{
       maxWidth:48,
       maxHeight:48,
-      borderRadius:'100%'
+      borderRadius:'100%',
     },
     imgProfile:{
-      objectFit:'contain',
       width:'100%',
       height:'100%',
       borderRadius:'100%',
