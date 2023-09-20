@@ -25,60 +25,48 @@ const useStyles = createUseStyles({
     zIndex: 1,
 
   },
-  popup: {
-    position: 'fixed',
-    top: 100,
-    right: 80,
-    zIndex: 10,
-    backgroundColor: 'F7F8FA',
-    boxShadow: '0 1px 2px 0 rgba(0,0,0,.2)',
-    width: 400
+  redPopup:{
+    backgroundColor:'red!important'
   }
+
 })
 
 
-export const UserAction = ({ icon, index }) => {
+export const UserAction = ({ icon, index, isOpen, callBack }) => {
 
-  const [isOpen, setIsOpen] = useState(false)
-  const [isOpenForm, setIsOpenForm] = useState([false, false, false])
+  const updateStatePopup = (index) => {
+    !isOpen ? callBack(index) : callBack(-1)
 
-  const updateStatePopup = (index)=>{
-    setIsOpen(!isOpen)
-    var result= isOpenForm.map((element,i)=> i===index?!element:element)
-    console.log(result)
-    setIsOpenForm(result)
+
 
   }
 
   const updateState = (index) => {
-  
+
     switch (index) {
       case 0:
-        return <Popup styles={classes.popup} index={index} component={<Menu />}/>
-        break;
+        return <Popup index={index} component={<Menu />} className={classes.redPopup} />
       case 1:
-        return <Popup styles={classes.popup} index={index} component={<Chat />} />
-        break;
+        return <Popup index={index} component={<Chat />} />
       case 2:
-          return <Popup styles={classes.popup} index={index} component={<Notifica />}/>
-          break;
+        return <Popup index={index} component={<Notifica />} />
       default:
         return null
-      break;
-        
+        break;
+
     }
-    }
-  
+  }
+
 
 
 
   const classes = useStyles()
   return (
     <div className={classes.wrapper}>
-      <div className={classes.userAction} onClick={() =>updateStatePopup(index)}>
+      <div className={classes.userAction} onClick={() => updateStatePopup(index)}>
         {icon}
       </div>
-      {isOpenForm[index] && <div>{updateState(index)}</div>}
+      {isOpen && <div>{updateState(index)}</div>}
     </div>
 
   )

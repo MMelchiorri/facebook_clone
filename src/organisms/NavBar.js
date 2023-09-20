@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { FriendsIcon, PlayIcon, HomeIcon, MessengerIcon, ProfileIcon, NotificationIcon, MenuIcon, FacebookIcon } from "../assets/icons"
 import NavAction from "../atoms/NavAction"
 import { UserAction } from "../atoms/UserAction"
@@ -36,6 +37,7 @@ const useStyles = createUseStyles({
 const NavBar = () => {
 
     const classes = useStyles()
+    const [openAction, setOpenAction] = useState()
 
     return (
         <div className={classes.nav}>
@@ -47,7 +49,7 @@ const NavBar = () => {
             </span>
             <div className={classes.userSection}>
                 {UserActions.map((item, index) => {
-                    return <UserAction key={index} index={index} icon={<item.icon />} />
+                    return <UserAction key={index} index={index} icon={<item.icon />} isOpen={index === openAction} callBack = {setOpenAction} />
                 })}
             </div>
         </div>
