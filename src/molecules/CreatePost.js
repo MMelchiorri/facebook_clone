@@ -1,6 +1,7 @@
 import React from 'react'
 import { createUseStyles } from "react-jss"
-import { ProfileIcon } from "../assets/icons"
+import { ProfilePhoto } from '../atoms/ProfilePhoto'
+import Photo from '../assets/profile.jpg'
 
 
 const useStyle = createUseStyles({
@@ -25,7 +26,7 @@ const CreatePost = () => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.upper}>
-        <span><ProfileIcon /></span>
+        <ProfilePhoto image={Photo}/>
         <div className={classes.fakeInput} onClick={() => { }}></div>
       </div>
       <div className={classes.lower}>

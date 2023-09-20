@@ -6,8 +6,6 @@ import { createUseStyles } from "react-jss"
 const useStyle = createUseStyles({
     wrapper: {
         display:'flex',
-    
-
     }
 
 })
@@ -20,7 +18,7 @@ const Home = () => {
             <NavBar />
             <div className={classes.wrapper}>
                 <SideBar />
-                <Feed />
+                <Feed/>
             </div>
         </div>
     )
