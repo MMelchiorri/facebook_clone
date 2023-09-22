@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Photo from '../assets/profile.jpg'
 import { createUseStyles } from "react-jss"
 import { ProfilePhoto } from '../atoms/ProfilePhoto'
-import Photo from '../assets/profile.jpg'
 import { FotoIcon, Reel, EmojiIcon } from '../assets/icons'
 import { PostAction } from '../atoms/PostAction'
+import { ModalPost } from './ModalPost'
 
 const PostIcon = [{ icon: Reel, text: 'Video in diretta' }, { icon: FotoIcon, text: 'Foto/Video' }, { icon: EmojiIcon, text: `Stato d'animo/ attivita` }]
-
 
 const useStyle = createUseStyles({
   wrapper: {
@@ -50,13 +50,16 @@ const useStyle = createUseStyles({
 const CreatePost = () => {
 
   const classes = useStyle()
+  const [modalOpen,setModalOpen] = useState(false)
+  const [text,setText] = useState('A cosa stai pensando marco?')
   return (
     <div className={classes.wrapper}>
+      {modalOpen && <ModalPost text={text}/>}
       <div className={classes.upper}>
         <ProfilePhoto image={Photo} />
 
-        <div className={classes.fakeInput} onClick={() => { }}>
-          <input className={classes.input} placeholder='A cosa stai pensando Marco?'></input>
+        <div className={classes.fakeInput} onClick={() =>  {console.log(modalOpen);setModalOpen(!modalOpen)}}>
+          <input className={classes.input} value={text} onChange={(e)=>{setText(e.target.value)}}/>
         </div>
       </div>
       <div className={classes.lower}>

@@ -1,5 +1,4 @@
 import { createUseStyles } from "react-jss"
-import { useState } from "react"
 import { Popup } from "../atoms/Popup"
 import { Menu } from "./Menu"
 import { Chat } from "./Chat"
@@ -52,13 +51,10 @@ export const UserAction = ({ icon, index, isOpen, callBack }) => {
         return <Popup index={index} component={<Notifica />} />
       default:
         return null
-        break;
+        
 
     }
   }
-
-
-
 
   const classes = useStyles()
   return (

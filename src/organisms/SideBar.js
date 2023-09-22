@@ -12,7 +12,6 @@ const useStyles = createUseStyles({
     padding: 16,
     width:300,
   }
-
 })
 const SideBar = () => {
 

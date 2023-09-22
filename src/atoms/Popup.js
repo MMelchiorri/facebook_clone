@@ -14,13 +14,10 @@ const useStyle = createUseStyles({
         boxShadow: '0 1px 2px 0 rgba(0,0,0,.2)',
         padding:16,
     }
-
 })
-
 
 export const Popup = ({ component,className }) => {
     const classes = useStyle()
-
     return (<div className={cx(classes.popup,className)}>
         {component}
     </div>)
