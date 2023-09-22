@@ -1,6 +1,5 @@
 import { createUseStyles } from "react-jss"
-import { useForm } from "react-hook-form"
-import { Events, Feed, FriendIcon, GroupIcon, ImportantEvent, News, Pages, Publish, Reel, Story } from "../assets/icons"
+import { Events, Feed, FriendIcon, GroupIcon, News, Pages } from "../assets/icons"
 import Action from '../atoms/Action'
 
 const array_div_u = [
@@ -12,20 +11,11 @@ const array_div_u = [
     { icon: Pages, title: "Pagine", paragraph: "Scopri le aziende e connettiti con loro su Facebook" }
 ]
 
-const array_div_d = [
-    { icon: Publish, title: "Pubblica" },
-    { icon: Story, title: "Storia" },
-    {icon:Reel,title:'Reel'},
-    {icon:ImportantEvent,title:'Avvenimento \n Importante'}
-
-]
-
 const useStyles = createUseStyles({
 
     wrapper:{
         display:'flex',
         gap:10,
-
     },
     content:{
         display:'flex',
@@ -41,11 +31,6 @@ const useStyles = createUseStyles({
 
 export const Menu = () => {
     const classes = useStyles()
-    const { register, handleSubmit } = useForm({
-        defaultValues: {
-
-        }
-    })
   return (
        <div>
         <h1>Menu</h1>

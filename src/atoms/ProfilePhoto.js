@@ -2,8 +2,8 @@ import { createUseStyles } from "react-jss"
 
 const useStyle = createUseStyles({
     wrapper:{
-      maxWidth:48,
-      maxHeight:48,
+      maxWidth:40,
+      maxHeight:40,
       borderRadius:'100%',
     },
     imgProfile:{
@@ -19,7 +19,7 @@ export const ProfilePhoto = ({image}) => {
   return (
     
     <div className={classes.wrapper} >
-        <img className={classes.imgProfile} src={image} alt="profilePhoto"></img>
+        <img className={classes.imgProfile} src={image} alt="profilePhoto" />
     </div>
   )
 }
