@@ -51,8 +51,6 @@ export const UserAction = ({ icon, index, isOpen, callBack }) => {
         return <Popup index={index} component={<Notifica />} />
       default:
         return null
-        
-
     }
   }
 

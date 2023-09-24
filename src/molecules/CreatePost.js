@@ -16,6 +16,12 @@ const useStyle = createUseStyles({
     backgroundColor: 'white',
     borderRadius: '10px',
   },
+  wrapperModal:{
+    display:'flex',
+    alignItems:'flex-start',
+    justifyContent:'center',
+
+  },
   upper: {
     display: 'flex',
     alignItems: 'center',
@@ -23,21 +29,21 @@ const useStyle = createUseStyles({
     paddingLeft: 40
   },
   fakeInput: {
-    display:'flex',
+    display: 'flex',
     paddingLeft: 30,
-    flex:1
+    flex: 1
   },
   input: {
     backgroundColor: '#E4E6E9',
-    opacity:0.7,
-    borderRadius:60,
+    opacity: 0.7,
+    borderRadius: 60,
     minHeight: 40,
-    flex:0.9,
-    border:'none',
-    paddingLeft:15,
-    color:'#606266',
-    fontSize:17,
-    cursor:'pointer'
+    flex: 0.9,
+    border: 'none',
+    paddingLeft: 15,
+    color: '#606266',
+    fontSize: 17,
+    cursor: 'pointer'
 
   },
   lower: {
@@ -50,16 +56,17 @@ const useStyle = createUseStyles({
 const CreatePost = () => {
 
   const classes = useStyle()
-  const [modalOpen,setModalOpen] = useState(false)
-  const [text,setText] = useState('A cosa stai pensando marco?')
+  const [modalOpen, setModalOpen] = useState(false)
+  const [text, setText] = useState('A cosa stai pensando marco?')
   return (
     <div className={classes.wrapper}>
-      {modalOpen && <ModalPost text={text}/>}
+      <div className={classes.wrapperModal}>
+        {modalOpen && <ModalPost text={text} onClick={() => setModalOpen(!modalOpen)} image={<ProfilePhoto image={Photo} />} />}
+      </div>
       <div className={classes.upper}>
         <ProfilePhoto image={Photo} />
-
-        <div className={classes.fakeInput} onClick={() =>  {console.log(modalOpen);setModalOpen(!modalOpen)}}>
-          <input className={classes.input} value={text} onChange={(e)=>{setText(e.target.value)}}/>
+        <div className={classes.fakeInput} onClick={() => setModalOpen(!modalOpen)}>
+          <input className={classes.input} value={text} onChange={(e) => { setText(e.target.value) }} />
         </div>
       </div>
       <div className={classes.lower}>
