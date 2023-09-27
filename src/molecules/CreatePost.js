@@ -4,6 +4,7 @@ import { createUseStyles } from "react-jss"
 import { ProfilePhoto } from '../atoms/ProfilePhoto'
 import { FotoIcon, Reel, EmojiIcon } from '../assets/icons'
 import { PostAction } from '../atoms/PostAction'
+import Modal from '../atoms/Modal'
 import { ModalPost } from './ModalPost'
 
 const PostIcon = [{ icon: Reel, text: 'Video in diretta' }, { icon: FotoIcon, text: 'Foto/Video' }, { icon: EmojiIcon, text: `Stato d'animo/ attivita` }]
@@ -61,7 +62,7 @@ const CreatePost = () => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.wrapperModal}>
-        {modalOpen && <ModalPost text={text} onClick={() => setModalOpen(!modalOpen)} image={<ProfilePhoto image={Photo} />} />}
+        {modalOpen && <Modal  component={<ModalPost text={text} onClick={() => setModalOpen(!modalOpen)} image={Photo} />}  />}
       </div>
       <div className={classes.upper}>
         <ProfilePhoto image={Photo} />
