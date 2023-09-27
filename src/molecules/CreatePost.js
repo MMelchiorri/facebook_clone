@@ -61,20 +61,6 @@ const CreatePost = () => {
   const [text, setText] = useState('A cosa stai pensando marco?')
   return (
     <div className={classes.wrapper}>
-      <div className={classes.wrapperModal}>
-        {modalOpen && <Modal  component={<ModalPost text={text} onClick={() => setModalOpen(!modalOpen)} image={Photo} />}  />}
-      </div>
-      <div className={classes.upper}>
-        <ProfilePhoto image={Photo} />
-        <div className={classes.fakeInput} onClick={() => setModalOpen(!modalOpen)}>
-          <input className={classes.input} value={text} onChange={(e) => { setText(e.target.value) }} />
-        </div>
-      </div>
-      <div className={classes.lower}>
-        {PostIcon.map((elem, index) => {
-          return <PostAction key={index} icon={<elem.icon />} text={elem.text} />
-        })}
-      </div>
 
     </div>
   )
