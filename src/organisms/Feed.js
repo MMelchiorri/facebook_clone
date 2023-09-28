@@ -3,7 +3,7 @@ import CreatePost from "../molecules/CreatePost"
 
 const useStyle = createUseStyles({
     wrapper: {
-        minWidth:700,
+        minWidth: 600,
         padding: '24px',
 
     }
