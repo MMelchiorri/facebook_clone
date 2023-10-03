@@ -3,7 +3,9 @@ import Photo from '../assets/profile.jpg'
 import { createUseStyles } from "react-jss"
 import { ProfilePhoto } from '../atoms/ProfilePhoto'
 import { FotoIcon, Reel, EmojiIcon } from '../assets/icons'
+import Modal from '../atoms/Modal'
 import NavAction from '../atoms/NavAction'
+import { ModalPost } from './ModalPost'
 
 const PostIcon = [{ icon: Reel, text: 'Video in diretta' }, { icon: FotoIcon, text: 'Foto/Video' }, { icon: EmojiIcon, text: `Stato d'animo/ attivita` }]
 
@@ -22,7 +24,7 @@ const useStyle = createUseStyles({
     justifyContent: 'space-evenly'
   },
   input: {
-    flex: 0.8,
+    minWidth: 400,
     minHeight: 30,
     paddingLeft: 20,
     borderRadius: 20,
@@ -36,31 +38,33 @@ const useStyle = createUseStyles({
   },
   lower: {
     display: 'flex',
-    flex: 1,
     justifyContent: 'space-around'
   }
 })
 
-const CreatePost = () => {
-
-  const classes = useStyle()
-  const [text, setText] = useState('')
+const CreatePost = ({ modal, callback }) => {
+  console.log(modal)
+  const classes = useStyle();
+  const [text, setText] = useState('');
   const handleChange = (e) => {
-    setText(e.target.value)
-  }
+    setText(e.target.value);
+  };
   return (
-    <div className={classes.wrapper}>
-      <div className={classes.upper}>
-        <ProfilePhoto image={Photo} />
-        <input className={classes.input} type='text' value={text} onChange={handleChange} placeholder='A costa stai pensando?' />
+    <>
+      {modal && <Modal callback={callback} component={<ModalPost />} />}
+      <div className={classes.wrapper}>
+        <div className={classes.upper}>
+          <ProfilePhoto image={Photo} />
+          <input className={classes.input} type='text' value={text} onChange={handleChange} placeholder='A costa stai pensando?' onClick={callback} />
+        </div>
+        <div className={classes.lower}>
+          {PostIcon.map((elem, index) => {
+            return <NavAction key={index} icon={<elem.icon />} />;
+          })}
+        </div>
       </div>
-      <div className={classes.lower}>
-        {PostIcon.map((elem, index) => {
-          return <NavAction key={index} icon={<elem.icon />} />
-        })}
-      </div>
-    </div>
-  )
-}
+    </>
+  );
+};
 
 export default CreatePost
