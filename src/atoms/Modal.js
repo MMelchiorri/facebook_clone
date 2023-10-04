@@ -1,8 +1,19 @@
+import { createUseStyles } from "react-jss"
+
+const useStyles = createUseStyles({
+  wrapper: {
+    flex: 1
+  }
+
+})
+
+const Modal = ({ callback, component }) => {
+
+  const classes = useStyles()
 
 
-const Modal = ({component}) => {
   return (
-    <div>
+    <div className={classes.wrapper}>
       {component}
     </div>
   )

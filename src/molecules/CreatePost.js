@@ -16,15 +16,15 @@ const useStyle = createUseStyles({
     padding: '16px',
     backgroundColor: 'white',
     borderRadius: '10px',
-    gap: 10
+    gap: 10,
   },
   upper: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-between'
   },
   input: {
-    minWidth: 400,
+    minWidth: '85%',
     minHeight: 30,
     paddingLeft: 20,
     borderRadius: 20,
@@ -43,27 +43,24 @@ const useStyle = createUseStyles({
 })
 
 const CreatePost = ({ modal, callback }) => {
-  console.log(modal)
   const classes = useStyle();
   const [text, setText] = useState('');
   const handleChange = (e) => {
     setText(e.target.value);
   };
   return (
-    <>
-      {modal && <Modal callback={callback} component={<ModalPost />} />}
-      <div className={classes.wrapper}>
-        <div className={classes.upper}>
-          <ProfilePhoto image={Photo} />
-          <input className={classes.input} type='text' value={text} onChange={handleChange} placeholder='A costa stai pensando?' onClick={callback} />
-        </div>
-        <div className={classes.lower}>
-          {PostIcon.map((elem, index) => {
-            return <NavAction key={index} icon={<elem.icon />} />;
-          })}
-        </div>
+    <div className={classes.wrapper}>
+      {modal && <Modal callback={callback} component={<ModalPost onClick={callback} />} />}
+      <div className={classes.upper}>
+        <ProfilePhoto image={Photo} />
+        <input className={classes.input} type='text' value={text} onChange={handleChange} placeholder='A costa stai pensando?' onClick={callback} />
       </div>
-    </>
+      <div className={classes.lower}>
+        {PostIcon.map((elem, index) => {
+          return <NavAction key={index} icon={<elem.icon />} />;
+        })}
+      </div>
+    </div>
   );
 };
 

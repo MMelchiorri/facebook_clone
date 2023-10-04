@@ -2,7 +2,7 @@ import { createUseStyles } from "react-jss"
 import { BookMark, FriendIcon, GroupIcon, MarketPlaceIcon, MemoriesIcon, PlayIcon, ProfileIcon } from "../assets/icons"
 import SideBarAction from "../atoms/Action"
 
-const array_sidebar = [{ text: 'Marco Melchiorri', icon: ProfileIcon }, { text: 'Amici', icon: FriendIcon }, { text: 'Ricordi', icon: MemoriesIcon }, { text: 'Gruppi', icon: GroupIcon }, { text: 'Watch', icon: PlayIcon }, { text: 'MarketPlace', icon: MarketPlaceIcon },{text:'Elementi Salvati',icon:BookMark}]
+const array_sidebar = [{ text: 'Marco Melchiorri', icon: ProfileIcon }, { text: 'Amici', icon: FriendIcon }, { text: 'Ricordi', icon: MemoriesIcon }, { text: 'Gruppi', icon: GroupIcon }, { text: 'Watch', icon: PlayIcon }, { text: 'MarketPlace', icon: MarketPlaceIcon }, { text: 'Elementi Salvati', icon: BookMark }]
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -10,7 +10,7 @@ const useStyles = createUseStyles({
     flexDirection: 'column',
     gap: 24,
     padding: 16,
-    width:300,
+    width: 300,
   }
 })
 const SideBar = () => {
