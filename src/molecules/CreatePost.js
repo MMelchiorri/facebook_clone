@@ -3,9 +3,7 @@ import Photo from '../assets/profile.jpg'
 import { createUseStyles } from "react-jss"
 import { ProfilePhoto } from '../atoms/ProfilePhoto'
 import { FotoIcon, Reel, EmojiIcon } from '../assets/icons'
-import Modal from '../atoms/Modal'
 import NavAction from '../atoms/NavAction'
-import { ModalPost } from './ModalPost'
 
 const PostIcon = [{ icon: Reel, text: 'Video in diretta' }, { icon: FotoIcon, text: 'Foto/Video' }, { icon: EmojiIcon, text: `Stato d'animo/ attivita` }]
 
@@ -16,23 +14,25 @@ const useStyle = createUseStyles({
     padding: '16px',
     backgroundColor: 'white',
     borderRadius: '10px',
-    gap: 10,
+    gap: 24
   },
   upper: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-evenly'
   },
   input: {
-    minWidth: '85%',
-    minHeight: 30,
+    minWidth: 400,
+    display: 'flex',
+    alignItems: 'center',
+    maxHeight: 40,
     paddingLeft: 20,
     borderRadius: 20,
     border: 'none',
     backgroundColor: '#F0F2F5',
     color: '#757779',
+    cursor: 'pointer',
     '&:hover': {
-      cursor: 'pointer',
       backgroundColor: '#E4E6E9'
     }
   },
@@ -45,22 +45,22 @@ const useStyle = createUseStyles({
 const CreatePost = ({ modal, callback }) => {
   const classes = useStyle();
   const [text, setText] = useState('');
-  const handleChange = (e) => {
-    setText(e.target.value);
-  };
   return (
-    <div className={classes.wrapper}>
-      {modal && <Modal callback={callback} component={<ModalPost onClick={callback} />} />}
-      <div className={classes.upper}>
-        <ProfilePhoto image={Photo} />
-        <input className={classes.input} type='text' value={text} onChange={handleChange} placeholder='A costa stai pensando?' onClick={callback} />
+    <>
+      <div className={classes.wrapper}>
+        <div className={classes.upper}>
+          <ProfilePhoto image={Photo} />
+          <div className={classes.input} onClick={callback}>
+            <p>A cosa stai pensando?</p>
+          </div>
+        </div>
+        <div className={classes.lower}>
+          {PostIcon.map((elem, index) => {
+            return <NavAction key={index} icon={<elem.icon />} />;
+          })}
+        </div>
       </div>
-      <div className={classes.lower}>
-        {PostIcon.map((elem, index) => {
-          return <NavAction key={index} icon={<elem.icon />} />;
-        })}
-      </div>
-    </div>
+    </>
   );
 };
 
