@@ -8,6 +8,7 @@ const useStyle = createUseStyles({
         left: 0,
         right: 0,
         bottom: 0,
+        cursor: 'pointer'
     },
     modal: {
         backgroundColor: 'white',

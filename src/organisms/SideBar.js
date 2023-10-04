@@ -6,11 +6,11 @@ const array_sidebar = [{ text: 'Marco Melchiorri', icon: ProfileIcon }, { text: 
 
 const useStyles = createUseStyles({
   wrapper: {
-    display: 'flex',
+    display: 'grid',
     flexDirection: 'column',
     gap: 24,
     padding: 16,
-    width: 300,
+    maxwidth: 360,
   }
 })
 const SideBar = () => {
