@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import Photo from '../assets/profile.jpg'
+import React from 'react'
+import Photo from '../assets/img/profile.jpg'
 import { createUseStyles } from "react-jss"
 import { ProfilePhoto } from '../atoms/ProfilePhoto'
 import { FotoIcon, Reel, EmojiIcon } from '../assets/icons'
@@ -44,7 +44,6 @@ const useStyle = createUseStyles({
 
 const CreatePost = ({ modal, callback }) => {
   const classes = useStyle();
-  const [text, setText] = useState('');
   return (
     <>
       <div className={classes.wrapper}>

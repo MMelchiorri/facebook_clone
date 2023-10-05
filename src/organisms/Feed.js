@@ -8,6 +8,9 @@ const useStyle = createUseStyles({
         width: '100%',
         maxWidth: 600,
         padding: '24px',
+    },
+    story: {
+        display: 'flex'
     }
 })
 
