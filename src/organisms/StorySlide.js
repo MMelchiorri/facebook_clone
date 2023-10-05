@@ -1,10 +1,9 @@
 import { createUseStyles } from "react-jss"
-import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper } from "swiper/react"
 import 'swiper/css'
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 import chips from '../assets/img/chips.svg'
 import mountain from '../assets/img/mountain.svg'
 import green from '../assets/img/green.svg'
@@ -26,7 +25,7 @@ export const StorySlide = () => {
     const classes = useStyles()
     return (
         <Swiper
-            modules={[Navigation, Pagination, Scrollbar]}
+            modules={[Navigation, Pagination]}
             spaceBetween={3}
             slidesPerView={2}
             navigation
