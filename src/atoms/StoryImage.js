@@ -2,7 +2,7 @@ import { createUseStyles } from "react-jss"
 import { ProfilePhoto } from "./ProfilePhoto"
 const useStyle = createUseStyles({
     profileImage: {
-        position: 'fixed',
+        position: 'absolute',
         zIndex: 1,
         top: 10,
         left: 10,
@@ -30,9 +30,7 @@ export const StoryImage = ({ image, profileImage }) => {
     const classes = useStyle({ image })
     return (
         <>
-            <div className={classes.profileImage}>
-                <ProfilePhoto image={profileImage} />
-            </div>
+            <ProfilePhoto image={profileImage} />
             <div className={classes.wrapper} />
         </>
 
