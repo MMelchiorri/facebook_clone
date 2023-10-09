@@ -7,7 +7,7 @@ import { createUseStyles } from "react-jss"
 const useStyle = createUseStyles({
     wrapper: {
         display: 'grid',
-        gridTemplateColumns: '1fr 2fr 1fr'
+        gridTemplateColumns: '1fr 3fr'
     },
     innerWrapper: {
         display: 'flex',
@@ -15,12 +15,7 @@ const useStyle = createUseStyles({
         justifyContent: 'center'
 
     },
-    feed: {
-        display: 'flex',
-        justifyContent: "center",
 
-
-    }
 
 })
 
@@ -33,12 +28,8 @@ const Home = () => {
             <div className={classes.wrapper}>
                 <SideBar />
                 <div className={classes.innerWrapper}>
-                    <div className={classes.storySlide}>
-                        <StorySlide />
-                    </div>
-                    <div className={classes.feed}>
-                        <Feed />
-                    </div>
+                    <StorySlide />
+                    <Feed />
                 </div>
 
             </div>

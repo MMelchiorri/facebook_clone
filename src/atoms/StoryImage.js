@@ -5,8 +5,8 @@ const useStyle = createUseStyles({
         borderColor: '#0866FF',
         zIndex: 1,
         position: 'relative',
-        top: 50,
-        left: 10,
+        top: 5,
+        left: 5,
         border: '5px solid',
 
     },
@@ -28,10 +28,11 @@ const useStyle = createUseStyles({
 export const StoryImage = ({ image, profileImage }) => {
     const classes = useStyle({ image })
     return (
-        <>
+
+
+        <div className={classes.wrapper} >
             <ProfilePhoto className={classes.profilePicture} image={profileImage} />
-            <div className={classes.wrapper} />
-        </>
+        </div>
 
     )
 }
