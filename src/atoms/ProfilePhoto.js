@@ -1,4 +1,5 @@
 import { createUseStyles } from "react-jss"
+import cx from 'classnames'
 
 const useStyle = createUseStyles({
   wrapper: {
@@ -14,12 +15,12 @@ const useStyle = createUseStyles({
   }
 })
 
-export const ProfilePhoto = ({ image }) => {
+export const ProfilePhoto = ({ image, className }) => {
   const classes = useStyle()
   return (
 
     <div className={classes.wrapper} >
-      <img className={classes.imgProfile} src={image} alt="profilePhoto" />
+      <img className={cx(classes.imgProfile, className)} src={image} alt="profilePhoto" />
     </div>
   )
 }

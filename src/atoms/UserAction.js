@@ -24,8 +24,8 @@ const useStyles = createUseStyles({
     zIndex: 1,
 
   },
-  redPopup:{
-    backgroundColor:'red!important'
+  redPopup: {
+    backgroundColor: 'red!important'
   }
 
 })
@@ -35,9 +35,6 @@ export const UserAction = ({ icon, index, isOpen, callBack }) => {
 
   const updateStatePopup = (index) => {
     !isOpen ? callBack(index) : callBack(-1)
-
-
-
   }
 
   const updateState = (index) => {
