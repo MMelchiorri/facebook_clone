@@ -34,18 +34,12 @@ export const StorySlide = () => {
         <Swiper
             slidesPerView={3}
             navigation={true}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}>
-
+        >
             <div className={classes.wrapper}>
                 {array_of_image.map((elem, key) => {
-
                     return <Story key={key} image={elem.image} profileImage={elem.avatar} />
                 })}
             </div>
         </Swiper>
-
-
-
     )
 }

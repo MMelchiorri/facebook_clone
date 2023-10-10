@@ -8,7 +8,6 @@ const useStyle = createUseStyles({
         height: 250,
 
     }
-
 })
 
 export const Story = ({ image, profileImage }) => {
@@ -20,6 +19,6 @@ export const Story = ({ image, profileImage }) => {
                 <StoryImage image={image} profileImage={profileImage} />
             </div>
         </SwiperSlide>
-
     )
+
 }

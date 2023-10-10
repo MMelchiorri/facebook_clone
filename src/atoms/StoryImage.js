@@ -28,11 +28,8 @@ const useStyle = createUseStyles({
 export const StoryImage = ({ image, profileImage }) => {
     const classes = useStyle({ image })
     return (
-
-
         <div className={classes.wrapper} >
             <ProfilePhoto className={classes.profilePicture} image={profileImage} />
         </div>
-
     )
 }

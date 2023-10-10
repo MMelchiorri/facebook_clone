@@ -15,8 +15,6 @@ const useStyle = createUseStyles({
         justifyContent: 'center'
 
     },
-
-
 })
 
 const Home = () => {
