@@ -14,11 +14,10 @@ export const Story = ({ image, profileImage }) => {
 
     const classes = useStyle()
     return (
-        <SwiperSlide>
-            <div className={classes.wrapper}>
-                <StoryImage image={image} profileImage={profileImage} />
-            </div>
-        </SwiperSlide>
+
+        <div className={classes.wrapper}>
+            <StoryImage image={image} profileImage={profileImage} />
+        </div>
     )
 
 }

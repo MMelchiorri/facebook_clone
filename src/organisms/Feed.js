@@ -1,5 +1,6 @@
 import { createUseStyles } from "react-jss"
 import { useState } from "react"
+import { StorySlide } from "./StorySlide"
 import CreatePost from "../molecules/CreatePost"
 import Modal from "../molecules/Modal"
 
@@ -22,6 +23,7 @@ const Feed = () => {
             {isPostModal && <Modal onClose={() => setIsPostModal(!isPostModal)}>
                 <h1>MODAL CONTENT</h1>
             </Modal>}
+            <StorySlide />
             <CreatePost callback={() => setIsPostModal(!isPostModal)} />
         </div>
     )
