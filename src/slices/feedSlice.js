@@ -12,6 +12,7 @@ export const feedSlice = createSlice({
         addPost: (state, action) => {
             console.log(state, action)
         }
-
     }
-}) 
+})
+
+console.log(feedSlice)
