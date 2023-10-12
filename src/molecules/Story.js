@@ -1,6 +1,5 @@
 import { StoryImage } from "../atoms/StoryImage"
 import { createUseStyles } from "react-jss"
-import { SwiperSlide } from "swiper/react"
 
 const useStyle = createUseStyles({
     wrapper: {
@@ -10,7 +9,7 @@ const useStyle = createUseStyles({
     }
 })
 
-export const Story = ({ image, profileImage }) => {
+export const Story = ({ image, profileImage, key }) => {
 
     const classes = useStyle()
     return (

@@ -24,11 +24,25 @@ export const StorySlide = () => {
     const swiperElRef = useRef(null);
 
     useEffect(() => {
-        // listen for Swiper events using addEventListener
-        swiperElRef.current.addEventListener('progress', (e) => {
-            const [swiper, progress] = e.detail;
-            console.log(progress);
-        });
+        // listen for Swiper events using addEventListene
+        register();
+
+        // Object with parameters
+        const params = {
+            injectStyles: [
+                `
+                :host(.red) .swiper-wrapper {
+                  background-color: red;
+                }
+                `,
+            ],
+
+        };
+
+        // Assign it to swiper element
+        Object.assign(swiperElRef.current, params);
+        swiperElRef.current.initialize();
+
 
         swiperElRef.current.addEventListener('slidechange', (e) => {
             console.log('slide changed');
@@ -40,12 +54,13 @@ export const StorySlide = () => {
             ref={swiperElRef}
             slides-per-view="2"
             navigation="true"
+            init='false'
         >
-            {array_of_image.map((item => {
-                return <swiper-slide>
+            {array_of_image.map((item, index) => {
+                return <swiper-slide key={index}>
                     <Story image={item.image} profileImage={item.avatar} />
                 </swiper-slide>
-            }))}
+            })}
         </swiper-container>
     );
 }

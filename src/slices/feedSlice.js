@@ -15,4 +15,3 @@ export const feedSlice = createSlice({
     }
 })
 
-console.log(feedSlice)
