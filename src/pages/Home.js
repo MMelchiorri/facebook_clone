@@ -25,7 +25,6 @@ const Home = () => {
             <NavBar />
             <div className={classes.wrapper}>
                 <SideBar />
-
                 <Feed />
             </div>
         </div>

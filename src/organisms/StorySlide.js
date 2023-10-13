@@ -31,10 +31,13 @@ export const StorySlide = () => {
         const params = {
             injectStyles: [
                 `
-                :host(.red) .swiper-wrapper {
-                  background-color: red;
+                :host{
+                    --swiper-navigation-color: #ff0000
                 }
                 `,
+                `:host{
+                    --swiper-navigation-size:20px
+                }`
             ],
 
         };
@@ -55,6 +58,7 @@ export const StorySlide = () => {
             slides-per-view="2"
             navigation="true"
             init='false'
+
         >
             {array_of_image.map((item, index) => {
                 return <swiper-slide key={index}>

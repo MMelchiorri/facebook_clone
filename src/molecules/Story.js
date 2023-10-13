@@ -15,6 +15,7 @@ export const Story = ({ image, profileImage, key }) => {
     return (
 
         <div className={classes.wrapper}>
+
             <StoryImage image={image} profileImage={profileImage} />
         </div>
     )
