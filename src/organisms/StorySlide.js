@@ -22,10 +22,8 @@ register();
 
 export const StorySlide = () => {
     const swiperElRef = useRef(null);
-
     const swiperSlideRef = useRef(null)
-    console.log(swiperElRef)
-    console.log(swiperSlideRef)
+
 
     useEffect(() => {
         register();
@@ -58,11 +56,10 @@ export const StorySlide = () => {
         // Assign it to swiper element
         Object.assign(swiperElRef.current, params);
         swiperElRef.current.initialize();
-
         Object.assign(swiperSlideRef.current, paramsSlide)
         swiperSlideRef.current.initialize()
-
-
+        console.log(swiperElRef.current)
+        console.log(swiperSlideRef.current)
         swiperElRef.current.addEventListener('slidechange', (e) => {
             console.log('slide changed');
         });
