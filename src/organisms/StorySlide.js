@@ -23,8 +23,11 @@ register();
 export const StorySlide = () => {
     const swiperElRef = useRef(null);
 
+    const swiperSlideRef = useRef(null)
+    console.log(swiperElRef)
+    console.log(swiperSlideRef)
+
     useEffect(() => {
-        // listen for Swiper events using addEventListene
         register();
 
         // Object with parameters
@@ -42,9 +45,22 @@ export const StorySlide = () => {
 
         };
 
+        const paramsSlide = {
+            injectStyles: [
+                `
+                ::slotted(swiper-slide){
+                   width: fit-content
+                }
+                `
+            ],
+        }
+
         // Assign it to swiper element
         Object.assign(swiperElRef.current, params);
         swiperElRef.current.initialize();
+
+        Object.assign(swiperSlideRef.current, paramsSlide)
+        swiperSlideRef.current.initialize()
 
 
         swiperElRef.current.addEventListener('slidechange', (e) => {
@@ -61,7 +77,7 @@ export const StorySlide = () => {
 
         >
             {array_of_image.map((item, index) => {
-                return <swiper-slide key={index}>
+                return <swiper-slide key={index} init='false' ref={swiperSlideRef}>
                     <Story image={item.image} profileImage={item.avatar} />
                 </swiper-slide>
             })}

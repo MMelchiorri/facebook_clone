@@ -1,7 +1,6 @@
 import Feed from "../organisms/Feed"
 import NavBar from "../organisms/NavBar"
 import SideBar from "../organisms/SideBar"
-import { StorySlide } from "../organisms/StorySlide"
 import { createUseStyles } from "react-jss"
 
 const useStyle = createUseStyles({
