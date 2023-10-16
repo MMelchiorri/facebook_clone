@@ -24,21 +24,33 @@ export const StorySlide = () => {
     const swiperElRef = useRef(null);
     const swiperSlideRef = useRef(null)
 
-
     useEffect(() => {
         register();
+
+        /*const shadowRoot = swiperElRef.current.shadowRoot
+        if (shadowRoot) {
+            const button_prev = shadowRoot.querySelector('[part="button-prev"]');
+            const button_next = shadowRoot.querySelector('[part="button-next"]');
+            const wrapper = shadowRoot.querySelector('[part="wrapper"]');
+            console.log(wrapper)
+            if (button_prev && button_next && wrapper) {
+                button_prev.style.backgroundColor = '#F2F2F2';
+                button_next.style.backgroundColor = '#F2F2F2';
+            }
+        }*/
+
 
         // Object with parameters
         const params = {
             injectStyles: [
                 `
                 :host{
-                    --swiper-navigation-color: #ff0000
+                    --swiper-navigation-color: #606266
                 }
                 `,
                 `:host{
-                    --swiper-navigation-size:20px
-                }`
+                    --swiper-navigation-size:30px
+                }`,
             ],
 
         };
@@ -58,8 +70,6 @@ export const StorySlide = () => {
         swiperElRef.current.initialize();
         Object.assign(swiperSlideRef.current, paramsSlide)
         swiperSlideRef.current.initialize()
-        console.log(swiperElRef.current)
-        console.log(swiperSlideRef.current)
         swiperElRef.current.addEventListener('slidechange', (e) => {
             console.log('slide changed');
         });
@@ -74,7 +84,7 @@ export const StorySlide = () => {
 
         >
             {array_of_image.map((item, index) => {
-                return <swiper-slide key={index} init='false' ref={swiperSlideRef}>
+                return <swiper-slide ref={swiperSlideRef} key={index} init='false'>
                     <Story image={item.image} profileImage={item.avatar} />
                 </swiper-slide>
             })}
