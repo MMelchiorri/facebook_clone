@@ -11,6 +11,9 @@ export const feedSlice = createSlice({
     reducers: {
         addPost: (state, action) => {
             console.log(state, action)
+        },
+        setPosts: (state, action) => {
+            state.value = { ...state.value, ...action.payload }
         }
     }
 })
