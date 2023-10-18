@@ -32,7 +32,6 @@ export const StorySlide = () => {
     const swiperSlideRef = useRef(null)
 
 
-
     useEffect(() => {
         register();
 
