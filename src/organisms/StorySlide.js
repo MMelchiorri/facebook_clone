@@ -17,28 +17,24 @@ import { register } from 'swiper/element/bundle';
 import { useEffect, useRef } from 'react'
 
 
-const array_of_image = [{ image: chips, avatar: avatar1 }, { image: mountain, avatar: avatar2 }, { image: green, avatar: avatar3 }, { image: moon, avatar: avatar4 }, { image: text, avatar: avatar5 }, { image: coke, avatar: avatar6 }, { image: fruits, avatar: avatar7 }]
+const array_of_image = [
+    { image: chips, avatar: avatar1 },
+    { image: mountain, avatar: avatar2 },
+    { image: green, avatar: avatar3 },
+    { image: moon, avatar: avatar4 },
+    { image: text, avatar: avatar5 },
+    { image: coke, avatar: avatar6 },
+    { image: fruits, avatar: avatar7 }]
 register();
 
 export const StorySlide = () => {
     const swiperElRef = useRef(null);
     const swiperSlideRef = useRef(null)
 
+
+
     useEffect(() => {
         register();
-
-        /*const shadowRoot = swiperElRef.current.shadowRoot
-        if (shadowRoot) {
-            const button_prev = shadowRoot.querySelector('[part="button-prev"]');
-            const button_next = shadowRoot.querySelector('[part="button-next"]');
-            const wrapper = shadowRoot.querySelector('[part="wrapper"]');
-            console.log(wrapper)
-            if (button_prev && button_next && wrapper) {
-                button_prev.style.backgroundColor = '#F2F2F2';
-                button_next.style.backgroundColor = '#F2F2F2';
-            }
-        }*/
-
 
         // Object with parameters
         const params = {
@@ -59,7 +55,7 @@ export const StorySlide = () => {
             injectStyles: [
                 `
                 ::slotted(swiper-slide){
-                   width: fit-content
+                   height: fit-content
                 }
                 `
             ],
