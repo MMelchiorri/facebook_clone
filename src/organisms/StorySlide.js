@@ -32,38 +32,27 @@ export const StorySlide = () => {
     const swiperSlideRef = useRef(null)
 
     useEffect(() => {
-        register();
-
         // Object with parameters
-        const params = {
-            injectStyles: [
-                `
-                :host{
-                    --swiper-navigation-color: #606266
-                }
-                `,
-                `:host{
-                    --swiper-navigation-size:30px
-                }`,
-            ],
-
+        const swiperParams = {
+            slidesPerView: 3,
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+            on: {
+                init() {
+                    // ...
+                },
+            },
         };
 
-        const paramsSlide = {
-            injectStyles: [
-                `
-                ::slotted(swiper-slide){
-                   height: fit-content
-                }
-                `
-            ],
-        }
-
         // Assign it to swiper element
-        Object.assign(swiperElRef.current, params);
+        Object.assign(swiperElRef.current, swiperParams);
         swiperElRef.current.initialize();
-        Object.assign(swiperSlideRef.current, paramsSlide)
-        swiperSlideRef.current.initialize()
         swiperElRef.current.addEventListener('slidechange', (e) => {
             console.log('slide changed');
         });
@@ -72,7 +61,6 @@ export const StorySlide = () => {
     return (
         <swiper-container
             ref={swiperElRef}
-            slides-per-view="2"
             navigation="true"
             init='false'
 

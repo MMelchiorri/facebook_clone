@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
     padding: 16,
     maxwidth: 360,
     height: 'fit-content',
-    position: 'fixed'
+    position: 'fixed',
   }
 })
 const SideBar = () => {

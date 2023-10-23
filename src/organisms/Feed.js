@@ -1,17 +1,18 @@
 import { createUseStyles } from "react-jss"
 import { useState } from "react"
 import { StorySlide } from "./StorySlide"
+import { useSelector } from 'react-redux'
+import { Posts } from "../atoms/Posts"
 import CreatePost from "../molecules/CreatePost"
 import Modal from "../molecules/Modal"
-import { useSelector } from 'react-redux'
+
 const useStyle = createUseStyles({
     wrapper: {
         width: '100%',
         maxWidth: 600,
         padding: '24px',
-    },
-    story: {
-        display: 'flex'
+        marginLeft: 360
+
     },
     postWrapper: {
         display: 'flex',
@@ -33,10 +34,8 @@ const Feed = () => {
             <CreatePost callback={() => setIsPostModal(!isPostModal)} />
             <div className={classes.postWrapper}>
                 {userPosts.map((elem) => {
-                    return <div>
-                        <h1>{elem.title}</h1>
-                        <div>{elem.body}</div>
-                    </div>
+
+                    return <Posts title={elem.title} body={elem.body} />
                 })}
             </div>
 

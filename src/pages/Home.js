@@ -15,7 +15,8 @@ const useStyle = createUseStyles({
     innerWrapper: {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignItems: 'center'
 
     },
 })
