@@ -63,7 +63,6 @@ export const StorySlide = () => {
             ref={swiperElRef}
             navigation="true"
             init='false'
-
         >
             {array_of_image.map((item, index) => {
                 return <swiper-slide ref={swiperSlideRef} key={index} init='false'>
