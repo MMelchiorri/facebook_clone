@@ -36,7 +36,7 @@ const useStyle = createUseStyles({
         justifyContent: 'space-evenly',
         alignItems: 'center',
         width: 100,
-        border: 'none',
+        borderStyle: 'none',
         backgroundColor: '#E4E6EB',
         borderRadius: 6,
         cursor: 'pointer',
@@ -50,15 +50,15 @@ const useStyle = createUseStyles({
     body: {
         display: 'flex',
         flexDirection: 'column',
-        border: 'none',
+        borderStyle: 'none',
         cursor: 'text',
-        marginTop: 15
+        marginTop: 15,
 
     },
     text: {
         maxWidth: 450,
         minHeight: 200,
-        border: 0
+        borderStyle: 'none'
     },
     emoticon: {
         marginTop: 10,
@@ -80,10 +80,9 @@ const useStyle = createUseStyles({
 
 const array = [{ value: picture }, { value: icon }, { value: emoji }, { value: location }, { value: gif }]
 
-export const ModalPosts = ({ text, changeText }) => {
-
+export const ModalPosts = ({ passedText, text, changeText }) => {
+    console.log(text)
     const classes = useStyle();
-
     return (
         <div className={classes.wrapper}>
             <div className={classes.header}>
@@ -99,7 +98,8 @@ export const ModalPosts = ({ text, changeText }) => {
             </div>
             <div className={classes.body} >
                 <div className={classes.text} role="textbox" aria-label={text} onChange={changeText} contentEditable="true" tabIndex={0}>
-                    {text}
+                    <p><span style={{ fontSize: 24, fontWeight: 400, padding: 10, borderStyle: 'none', display: text === '' ? 'block' : 'none' }}>{passedText}</span></p>
+                    <p><span style={{ fontSize: 24, fontWeight: 400, padding: 10, borderStyle: 'none', display: text !== '' ? 'block' : 'none' }}>{text}</span></p>
                 </div>
                 <div className={classes.emoticon}>
                     <img style={{ cursor: 'pointer', width: 38, height: 38 }} src={aaimage} alt="image_icon" />
@@ -116,7 +116,7 @@ export const ModalPosts = ({ text, changeText }) => {
                     <ThreeDots />
                 </div>
             </div>
-            <button style={{ border: 'none', minWidth: 450, minHeight: 30 }}>Pubblica</button>
+            <button style={{ border: 'none', minWidth: 450, minHeight: 30, backgroundColor: text === "" ? '#E5E6E8' : '#0866FF', color: text === "" ? '#BCC0C4' : 'white', fontSize: 15, fontWeight: 600 }}><span>Pubblica</span></button>
         </div>
 
     )

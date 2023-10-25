@@ -49,7 +49,7 @@ const CreatePost = ({ text, callback }) => {
       <div className={classes.wrapper}>
         <div className={classes.upper}>
           <ProfilePhoto image={Photo} />
-          <div className={classes.input} onClick={callback}>
+          <div className={classes.input} onClick={callback} >
             <p>{text}</p>
           </div>
         </div>
