@@ -109,11 +109,11 @@ export const ModalPosts = ({ text, changeText }) => {
 
             <div className={classes.addPost}>
                 <span>Aggiungi al tuo post</span>
-                <div style={{ display: 'flex', justifyContent: 'space-around', minWidth: 140 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-around', minWidth: 180 }}>
                     {array.map((elem) => {
-                        console.log(elem)
                         return <img style={{ width: 20, height: 20 }} src={elem.value} alt="" />
                     })}
+                    <ThreeDots />
                 </div>
             </div>
             <button style={{ border: 'none', minWidth: 450, minHeight: 30 }}>Pubblica</button>
