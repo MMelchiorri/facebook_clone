@@ -42,7 +42,7 @@ const useStyle = createUseStyles({
   }
 })
 
-const CreatePost = ({ modal, callback }) => {
+const CreatePost = ({ text, callback }) => {
   const classes = useStyle();
   return (
     <>
@@ -50,7 +50,7 @@ const CreatePost = ({ modal, callback }) => {
         <div className={classes.upper}>
           <ProfilePhoto image={Photo} />
           <div className={classes.input} onClick={callback}>
-            <p>A cosa stai pensando?</p>
+            <p>{text}</p>
           </div>
         </div>
         <div className={classes.lower}>

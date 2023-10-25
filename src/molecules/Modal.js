@@ -13,8 +13,8 @@ const useStyle = createUseStyles({
     modal: {
         backgroundColor: 'white',
         padding: 16,
-        minWidth: '400px',
-        minHeight: '400px',
+        minWidth: 'fit-content',
+        minHeight: 'fit-content',
         borderRadius: 16,
         position: 'absolute',
         zIndex: 2,
@@ -26,7 +26,9 @@ const useStyle = createUseStyles({
 
     title: {
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        fontSize: 20,
+        fontWeight: 700
     },
     button: {
         display: 'flex',
@@ -44,7 +46,10 @@ const useStyle = createUseStyles({
         lineHeight: 2,
         borderRadius: 18,
         position: 'absolute',
-        top: 30
+        top: 10,
+        color: '#696F78',
+        fontWeight: 600,
+        fontSize: 18
     }
 })
 
@@ -54,7 +59,7 @@ const Modal = ({ children, onClose, title }) => {
         <div className={classes.overlay}></div>
         <div className={classes.modal}>
             <div className={classes.title}>
-                <h3>{title}</h3>
+                <span>{title}</span>
             </div>
             <div className={classes.button}>
                 <span className={classes.close} onClick={onClose}>X</span>
