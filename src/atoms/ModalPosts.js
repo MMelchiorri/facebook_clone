@@ -1,6 +1,7 @@
 import { createUseStyles } from "react-jss";
 import { ProfilePhoto } from "./ProfilePhoto";
 import { BackArrow, EmojiIcon, ThreeDots } from "../assets/icons";
+import { useForm } from "react-hook-form";
 import aaimage from '../assets/img/SATP_Aa_square-2x.png'
 import Photo from '../assets/img/profile.jpg'
 import friendIcon from '../assets/img/friendIcon.png'
@@ -9,6 +10,7 @@ import icon from '../assets/img/icon.png'
 import emoji from '../assets/img/emoji.png'
 import location from '../assets/img/location.png'
 import gif from '../assets/img/gif.png'
+
 
 
 
@@ -80,10 +82,19 @@ const useStyle = createUseStyles({
 
 const array = [{ value: picture }, { value: icon }, { value: emoji }, { value: location }, { value: gif }]
 
-export const ModalPosts = ({ passedText, text, changeText }) => {
-    console.log(text)
+export const ModalPosts = ({ text }) => {
+    const {
+        register,
+        handleSubmit
+    } = useForm()
+
+
+    const onSubmit = (data) => {
+        console.log(data)
+    }
     const classes = useStyle();
     return (
+
         <div className={classes.wrapper}>
             <div className={classes.header}>
                 <ProfilePhoto image={Photo} />
@@ -97,27 +108,26 @@ export const ModalPosts = ({ passedText, text, changeText }) => {
                 </div>
             </div>
             <div className={classes.body} >
-                <div className={classes.text} role="textbox" aria-label={text} onChange={changeText} contentEditable="true" tabIndex={0}>
-                    <p><span style={{ fontSize: 24, fontWeight: 400, padding: 10, borderStyle: 'none', display: text === '' ? 'block' : 'none' }}>{passedText}</span></p>
-                    <p><span style={{ fontSize: 24, fontWeight: 400, padding: 10, borderStyle: 'none', display: text !== '' ? 'block' : 'none' }}>{text}</span></p>
-                </div>
-                <div className={classes.emoticon}>
-                    <img style={{ cursor: 'pointer', width: 38, height: 38 }} src={aaimage} alt="image_icon" />
-                    <EmojiIcon />
-                </div>
-            </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <textarea style={{ border: "none", minWidth: 400, minHeight: 200, resize: 'none' }} defaultValue={text} {...register("text")} />
+                    <div className={classes.emoticon}>
+                        <img style={{ cursor: 'pointer', width: 38, height: 38 }} src={aaimage} alt="image_icon" />
+                        <EmojiIcon />
+                    </div>
 
-            <div className={classes.addPost}>
-                <span>Aggiungi al tuo post</span>
-                <div style={{ display: 'flex', justifyContent: 'space-around', minWidth: 180 }}>
-                    {array.map((elem) => {
-                        return <img style={{ width: 20, height: 20 }} src={elem.value} alt="" />
-                    })}
-                    <ThreeDots />
-                </div>
+                    <div className={classes.addPost}>
+                        <span>Aggiungi al tuo post</span>
+                        <div style={{ display: 'flex', justifyContent: 'space-around', minWidth: 180 }}>
+                            {array.map((elem) => {
+                                return <img style={{ width: 20, height: 20 }} src={elem.value} alt="" />
+                            })}
+                            <ThreeDots />
+                        </div>
+                    </div>
+                    <button type="submit" style={{ border: 'none', minWidth: 450, minHeight: 30, cursor: 'pointer' }}><span>Pubblica</span></button>
+                </form>
             </div>
-            <button style={{ border: 'none', minWidth: 450, minHeight: 30, backgroundColor: text === "" ? '#E5E6E8' : '#0866FF', color: text === "" ? '#BCC0C4' : 'white', fontSize: 15, fontWeight: 600 }}><span>Pubblica</span></button>
-        </div>
+        </div >
 
     )
 }

@@ -29,7 +29,7 @@ const useStyle = createUseStyles({
 const Feed = () => {
     const [isPostModal, setIsPostModal] = useState(false)
     const userPosts = useSelector(state => state.feed.value.posts)
-    const [text, setText] = useState('')
+    const [text, setText] = useState('A cosa stai pensando')
 
     const changeText = (e) => {
         setText(e.target.value)
