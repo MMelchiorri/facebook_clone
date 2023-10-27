@@ -2,8 +2,6 @@ import { createUseStyles } from "react-jss";
 import { ProfilePhoto } from "./ProfilePhoto";
 import { BackArrow, EmojiIcon, ThreeDots } from "../assets/icons";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { addPost } from "../store";
 import aaimage from '../assets/img/SATP_Aa_square-2x.png'
 import Photo from '../assets/img/profile.jpg'
 import friendIcon from '../assets/img/friendIcon.png'
@@ -12,7 +10,7 @@ import icon from '../assets/img/icon.png'
 import emoji from '../assets/img/emoji.png'
 import location from '../assets/img/location.png'
 import gif from '../assets/img/gif.png'
-import { useState } from "react";
+
 
 
 

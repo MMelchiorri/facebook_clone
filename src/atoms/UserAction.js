@@ -24,9 +24,6 @@ const useStyles = createUseStyles({
     inset: 0,
     zIndex: 1,
 
-  },
-  redPopup: {
-    backgroundColor: 'red!important'
   }
 
 })

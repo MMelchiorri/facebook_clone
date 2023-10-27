@@ -12,21 +12,22 @@ const useStyles = createUseStyles({
             cursor: 'pointer'
         }
     },
-    content:{
-        display:'flex',
-        flexDirection:'column'
+    content: {
+        display: 'flex',
+        flexDirection: 'column',
+        maxWidth: 200
     }
 
 })
 
-const SideBarAction = ({ text, icon,subtitle }) => {
+const SideBarAction = ({ text, icon, subtitle }) => {
     const classes = useStyles()
     return (
         <div className={classes.wrapper}>
             <span>{icon}</span>
             <div className={classes.content}>
                 <span>{text}</span>
-                <span>{subtitle}</span>
+                <span style={{ fontSize: 12 }}>{subtitle}</span>
             </div>
         </div>
     )
