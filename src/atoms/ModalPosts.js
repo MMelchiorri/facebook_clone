@@ -2,6 +2,8 @@ import { createUseStyles } from "react-jss";
 import { ProfilePhoto } from "./ProfilePhoto";
 import { BackArrow, EmojiIcon, ThreeDots } from "../assets/icons";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { addPost } from "../store";
 import aaimage from '../assets/img/SATP_Aa_square-2x.png'
 import Photo from '../assets/img/profile.jpg'
 import friendIcon from '../assets/img/friendIcon.png'
@@ -10,6 +12,7 @@ import icon from '../assets/img/icon.png'
 import emoji from '../assets/img/emoji.png'
 import location from '../assets/img/location.png'
 import gif from '../assets/img/gif.png'
+import { useState } from "react";
 
 
 
@@ -82,16 +85,17 @@ const useStyle = createUseStyles({
 
 const array = [{ value: picture }, { value: icon }, { value: emoji }, { value: location }, { value: gif }]
 
-export const ModalPosts = ({ text }) => {
+export const ModalPosts = ({ text, changeText }) => {
     const {
         register,
         handleSubmit
     } = useForm()
 
-
-    const onSubmit = (data) => {
-        console.log(data)
+    const onSubmit = (e) => {
+        console.log(e)
     }
+
+
     const classes = useStyle();
     return (
 
@@ -109,7 +113,7 @@ export const ModalPosts = ({ text }) => {
             </div>
             <div className={classes.body} >
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <textarea style={{ border: "none", minWidth: 400, minHeight: 200, resize: 'none' }} defaultValue={text} {...register("text")} />
+                    <textarea style={{ border: "none", minWidth: 400, minHeight: 200, resize: 'none' }} defaultValue={text} {...register("text")} onChange={changeText} autoFocus={true} />
                     <div className={classes.emoticon}>
                         <img style={{ cursor: 'pointer', width: 38, height: 38 }} src={aaimage} alt="image_icon" />
                         <EmojiIcon />
@@ -118,13 +122,23 @@ export const ModalPosts = ({ text }) => {
                     <div className={classes.addPost}>
                         <span>Aggiungi al tuo post</span>
                         <div style={{ display: 'flex', justifyContent: 'space-around', minWidth: 180 }}>
-                            {array.map((elem) => {
-                                return <img style={{ width: 20, height: 20 }} src={elem.value} alt="" />
+                            {array.map((elem, index) => {
+                                return <img key={index} style={{ width: 20, height: 20 }} src={elem.value} alt="" />
                             })}
                             <ThreeDots />
                         </div>
                     </div>
-                    <button type="submit" style={{ border: 'none', minWidth: 450, minHeight: 30, cursor: 'pointer' }}><span>Pubblica</span></button>
+                    <button type="submit" style={{
+                        border: 'none',
+                        minWidth: 450,
+                        minHeight: 30,
+                        cursor: 'pointer',
+                        backgroundColor: text === '' || text === 'A cosa stai pensando?' ? '#E4E6EB' : '#0861F2',
+                        color: text === '' || text === 'A cosa stai pensando?' ? '' : ' #EBEEF2'
+                    }}
+                        disabled={text === '' || text === 'A cosa stai pensando?' ? true : false}>
+                        <span>Pubblica</span>
+                    </button>
                 </form>
             </div>
         </div >
