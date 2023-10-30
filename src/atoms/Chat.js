@@ -1,7 +1,11 @@
 import { createUseStyles } from "react-jss";
 import { Arrows, ThreeDots, Publish, SearchIcon } from "../assets/icons";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useState } from "react";
+import { useState } from "react"
+import data from '../mock/mockChat.json'
+
+console.log(data)
+
 
 const useStyles = createUseStyles({
   chatStyle: {
@@ -34,36 +38,40 @@ const useStyles = createUseStyles({
     display: "flex",
     alignItems: "center",
   },
-  buttonContainer:{
-    maxWidth:200,
-    display:'flex',
-    justifyContent:'space-around',
-    padding:14
+  buttonContainer: {
+    maxWidth: 200,
+    display: 'flex',
+    justifyContent: 'space-around',
+    padding: 14
   },
-  buttonSelected:{
-    border:'none',
-    padding:8,
-    color:'#005FC6',
-    fontSize:15,
-    fontWeight:600,
-    borderRadius:20,
-    '&:hover':{
-        cursor:'pointer'
+  buttonSelected: {
+    border: 'none',
+    padding: 8,
+    color: '#005FC6',
+    fontSize: 15,
+    fontWeight: 600,
+    borderRadius: 20,
+    '&:hover': {
+      cursor: 'pointer'
     }
   },
-  buttonNotSelected:{
-    border:'none',
-    padding:8,
-    color:'#050505',
-    fontSize:15,
-    fontWeight:600,
-    cursor:'pointer',
+  buttonNotSelected: {
+    border: 'none',
+    padding: 8,
+    color: '#050505',
+    fontSize: 15,
+    fontWeight: 600,
+    cursor: 'pointer',
     backgroundColor: 'transparent',
-    '&:hover':{
-        backgroundColor:'#F2F2F2',
-        borderRadius:20,
+    '&:hover': {
+      backgroundColor: '#F2F2F2',
+      borderRadius: 20,
     }
 
+  },
+  chatWrapper: {
+    display: 'flex',
+    flexDirection: 'column'
   }
 });
 
@@ -72,11 +80,11 @@ const arrayIcon = [{ icon: ThreeDots }, { icon: Arrows }, { icon: Publish }];
 export const Chat = () => {
   const classes = useStyles();
   const { register } = useForm();
-  const [buttonSelected,setButtonSelected] = useState([true,false])
+  const [buttonSelected, setButtonSelected] = useState([true, false])
   const changeStateButton = () => {
     setButtonSelected([!buttonSelected[0], !buttonSelected[1]]);
   };
-  
+
 
   return (
     <div className={classes.chatStyle}>
@@ -113,8 +121,13 @@ export const Chat = () => {
         />
       </div>
       <div className={classes.buttonContainer}>
-        <button className={ buttonSelected[0] ? classes.buttonSelected : classes.buttonNotSelected} onClick={changeStateButton}>Posta</button>
+        <button className={buttonSelected[0] ? classes.buttonSelected : classes.buttonNotSelected} onClick={changeStateButton}>Posta</button>
         <button className={buttonSelected[1] ? classes.buttonSelected : classes.buttonNotSelected} onClick={changeStateButton}>Community</button>
+      </div>
+      <div className={classes.chatWrapper}>
+        {data.friends.map((elem) => {
+          console.log(elem)
+        })}
       </div>
     </div>
   );
