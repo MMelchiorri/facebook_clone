@@ -13,7 +13,10 @@ const useStyles = createUseStyles({
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#FFFFFF',
-        boxShadow: '0 1px 2px 0 rgba(0,0,0,.2)'
+        boxShadow: '0 1px 2px 0 rgba(0,0,0,.2)',
+        position: 'fixed',
+        width: '100%',
+        zIndex: 1
     },
     navItems: {
         display: 'flex',

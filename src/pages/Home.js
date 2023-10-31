@@ -13,11 +13,7 @@ const useStyle = createUseStyles({
         gridTemplateColumns: '1fr 2fr 1fr'
     },
     innerWrapper: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-
+        marginTop: 60
     },
 })
 
@@ -44,8 +40,10 @@ const Home = () => {
         <div>
             <NavBar />
             <div className={classes.wrapper}>
-                <SideBar />
-                <Feed />
+                <div className={classes.innerWrapper}>
+                    <SideBar />
+                    <Feed />
+                </div>
             </div>
         </div>
     )

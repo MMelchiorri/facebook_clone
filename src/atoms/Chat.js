@@ -3,6 +3,7 @@ import { Arrows, ThreeDots, Publish, SearchIcon } from "../assets/icons";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react"
 import data from '../mock/mockChat.json'
+import { ProfilePhoto } from "./ProfilePhoto";
 
 console.log(data)
 
@@ -12,7 +13,7 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     minWidth: 340,
-    minHeight: "fit-content",
+    maxHeight: 600,
   },
   header: {
     display: "flex",
@@ -71,7 +72,9 @@ const useStyles = createUseStyles({
   },
   chatWrapper: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    maxHeight: 'fit-content',
+    overflowY: 'scroll'
   }
 });
 
@@ -126,7 +129,17 @@ export const Chat = () => {
       </div>
       <div className={classes.chatWrapper}>
         {data.friends.map((elem) => {
-          console.log(elem)
+          return (
+            <div key={elem.id} style={{ margin: 10 }}>
+              {elem.picture !== ' ' ? (
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <ProfilePhoto image={elem.picture} />
+                  <div style={{ width: 12, height: 12, borderRadius: 8, backgroundColor: '#31A24C', position: 'relative', right: 15, top: 16, border: '3px solid white' }}></div>
+                  <span style={{ marginLeft: 20 }}>{elem.name}</span>
+                </div>
+              ) : null}
+            </div>
+          );
         })}
       </div>
     </div>
