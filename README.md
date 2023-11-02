@@ -1,6 +1,6 @@
 # Facebook Clone (Frontend-only with Axios)
 
-![Facebook Clone Screenshot](screenshot.png)
+![Facebook Clone Screenshot](./screenshot.png)
 
 This is a project that replicates the look and feel of the popular social networking platform, Facebook. The Facebook Clone (Frontend-only with Axios) project is designed for educational purposes and as a demonstration of web development skills. It does not include a backend, but it uses Axios to make API requests for frontend development practice.
 
