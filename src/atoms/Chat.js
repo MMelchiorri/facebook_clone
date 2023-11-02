@@ -4,15 +4,14 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react"
 import data from '../mock/mockChat.json'
 import { ProfilePhoto } from "./ProfilePhoto";
-
-console.log(data)
-
+import PostaChat from "./PostaChat";
 
 const useStyles = createUseStyles({
+  //post part
   chatStyle: {
     display: "flex",
     flexDirection: "column",
-    minWidth: 340,
+    maxWidth: 360,
     maxHeight: 600,
   },
   header: {
@@ -68,13 +67,6 @@ const useStyles = createUseStyles({
       backgroundColor: '#F2F2F2',
       borderRadius: 20,
     }
-
-  },
-  chatWrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    maxHeight: 'fit-content',
-    overflowY: 'scroll'
   }
 });
 
@@ -127,21 +119,15 @@ export const Chat = () => {
         <button className={buttonSelected[0] ? classes.buttonSelected : classes.buttonNotSelected} onClick={changeStateButton}>Posta</button>
         <button className={buttonSelected[1] ? classes.buttonSelected : classes.buttonNotSelected} onClick={changeStateButton}>Community</button>
       </div>
-      <div className={classes.chatWrapper}>
-        {data.friends.map((elem) => {
-          return (
-            <div key={elem.id} style={{ margin: 10 }}>
-              {elem.picture !== ' ' ? (
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <ProfilePhoto image={elem.picture} />
-                  <div style={{ width: 12, height: 12, borderRadius: 8, backgroundColor: '#31A24C', position: 'relative', right: 15, top: 16, border: '3px solid white' }}></div>
-                  <span style={{ marginLeft: 20 }}>{elem.name}</span>
-                </div>
-              ) : null}
-            </div>
-          );
-        })}
-      </div>
+      {buttonSelected[0] ? (
+        <PostaChat />
+      ) :
+        <div className={classes.chatWrapper}>
+          sono in community
+        </div>
+      }
+
     </div>
+
   );
 };
