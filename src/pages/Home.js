@@ -6,6 +6,7 @@ import { createUseStyles } from "react-jss"
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { setPosts } from "../store"
+import ChatBar from "../organisms/ChatBar"
 
 const useStyle = createUseStyles({
     wrapper: {
@@ -43,6 +44,7 @@ const Home = () => {
                 <div className={classes.innerWrapper}>
                     <SideBar />
                     <Feed />
+                    <ChatBar />
                 </div>
             </div>
         </div>

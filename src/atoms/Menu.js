@@ -51,7 +51,7 @@ const useStyles = createUseStyles({
 export const Menu = () => {
     const classes = useStyles()
     return (
-        <div>
+        <div style={{ zIndex: 10 }}>
             <h1 style={{ fontSize: 24, fontWeight: 700 }}>Menu</h1>
             <div className={classes.wrapper}>
                 <div className={classes.contentU}>

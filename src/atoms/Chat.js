@@ -3,6 +3,7 @@ import { Arrows, ThreeDots, Publish, SearchIcon } from "../assets/icons";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react"
 import PostaChat from "./PostaChat";
+import CommunityChat from "./CommunityChat";
 
 const useStyles = createUseStyles({
   //post part
@@ -120,11 +121,11 @@ export const Chat = () => {
       {buttonSelected[0] ? (
         <PostaChat />
       ) :
-        <div className={classes.chatWrapper}>
-          sono in community
-        </div>
+        <CommunityChat />
       }
-
+      <div style={{ borderTop: '1px solid #E0E0E0', marginTop: 5 }}>
+        <p style={{ textAlign: 'center', color: '#0861F2', cursor: 'pointer' }}>Vedi tutti su Messenger</p>
+      </div>
     </div>
 
   );

@@ -4,11 +4,9 @@ import { Menu } from "./Menu"
 import { Chat } from "./Chat"
 import { Notifica } from "./Notifica"
 
-
 const useStyles = createUseStyles({
   userAction: {
     padding: 10,
-    backgroundColor: '#F0F2F5',
     height: 20,
     borderRadius: 20,
     display: "flex",
@@ -23,23 +21,18 @@ const useStyles = createUseStyles({
     position: 'fixed',
     inset: 0,
     zIndex: 1,
-
   }
-
 })
 
-
 export const UserAction = ({ icon, index, isOpen, callBack }) => {
-
   const updateStatePopup = (index) => {
     !isOpen ? callBack(index) : callBack(-1)
   }
 
   const updateState = (index) => {
-
     switch (index) {
       case 0:
-        return <Popup index={index} component={<Menu />} className={classes.redPopup} />
+        return <Popup index={index} component={<Menu />} />
       case 1:
         return <Popup index={index} component={<Chat />} />
       case 2:
@@ -52,11 +45,14 @@ export const UserAction = ({ icon, index, isOpen, callBack }) => {
   const classes = useStyles()
   return (
     <div className={classes.wrapper}>
-      <div className={classes.userAction} onClick={() => updateStatePopup(index)}>
+      <div
+        className={classes.userAction}
+        onClick={() => updateStatePopup(index)}
+        style={{ backgroundColor: isOpen ? '#039BE5' : '#F0F2F5' }}
+      >
         {icon}
       </div>
       {isOpen && <div>{updateState(index)}</div>}
     </div>
-
   )
 }
