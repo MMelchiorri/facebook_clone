@@ -1,7 +1,4 @@
 import { createUseStyles } from "react-jss";
-import { Arrows, ThreeDots, Publish, SearchIcon } from "../assets/icons";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { useState } from "react"
 import data from '../mock/mockChat.json'
 import { ProfilePhoto } from "./ProfilePhoto";
 
