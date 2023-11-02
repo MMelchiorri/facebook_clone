@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss";
 import { Arrows, ThreeDots, Publish, SearchIcon } from "../assets/icons";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useState } from "react"
 import PostaChat from "./PostaChat";
 import CommunityChat from "./CommunityChat";

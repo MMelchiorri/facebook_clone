@@ -1,4 +1,5 @@
 import { createUseStyles } from "react-jss";
+
 import data from '../mock/mockChat.json'
 import { ProfilePhoto } from "./ProfilePhoto";
 
@@ -92,7 +93,7 @@ const PostaChat = () => {
                         {elem.picture !== ' ' && elem.chatlog[0] !== undefined ? (
                             <div style={{ display: 'flex', alignItems: 'center' }}>
                                 <ProfilePhoto image={elem.picture} />
-                                <div style={{ width: 30, height: 10, borderRadius: 12, backgroundColor: '#31A24C', position: 'relative', right: 15, top: 16, border: '3px solid white' }}></div>
+                                <div style={{ width: 30, height: 10, borderRadius: '50%', backgroundColor: '#31A24C', position: 'relative', right: 15, top: 16, border: '3px solid white' }}></div>
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                                     <span style={{ fontWeight: 'bold' }}>{elem.name}</span>
                                     <span style={{ fontSize: '12px', padding: 3 }}>{elem.chatlog[0].text}</span>
