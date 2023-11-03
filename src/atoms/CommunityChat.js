@@ -5,7 +5,6 @@ import { ProfilePhoto } from "./ProfilePhoto";
 
 
 const useStyles = createUseStyles({
-    //post part
     chatStyle: {
         display: "flex",
         flexDirection: "column",

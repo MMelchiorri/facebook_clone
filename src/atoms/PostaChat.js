@@ -1,9 +1,6 @@
 import { createUseStyles } from "react-jss";
-
 import data from '../mock/mockChat.json'
 import { ProfilePhoto } from "./ProfilePhoto";
-
-
 
 const useStyles = createUseStyles({
     //post part

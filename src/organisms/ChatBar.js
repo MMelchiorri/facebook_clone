@@ -48,7 +48,7 @@ const ChatBar = () => {
         <div className={classNames.wrapper}>
             <div className={classNames.container}>
                 <span>Contatti</span>
-                <div style={{ display: 'flex', justifyContent: 'space-around', minWidth: 50 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', minWidth: 50 }}>
                     <SearchIcon />
                     <ThreeDots />
                 </div>

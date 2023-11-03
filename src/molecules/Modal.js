@@ -3,7 +3,7 @@ import { createUseStyles } from "react-jss";
 const useStyle = createUseStyles({
     overlay: {
         position: "absolute",
-        background: "rgb(0,0,0,0.4)",
+        background: "rgb(243, 243, 244,0.6)",
         top: 0,
         left: 0,
         right: 0,

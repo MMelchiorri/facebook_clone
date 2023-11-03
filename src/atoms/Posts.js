@@ -25,7 +25,6 @@ const useStyles = createUseStyles({
 })
 
 export const Posts = ({ title, body }) => {
-
     const classes = useStyles()
     return (
         <div className={classes.wrapper}>

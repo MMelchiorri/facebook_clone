@@ -1,6 +1,8 @@
 import { createUseStyles } from "react-jss";
 import { ProfilePhoto } from "./ProfilePhoto";
 import { BackArrow, EmojiIcon, ThreeDots } from "../assets/icons";
+import { useDispatch } from "react-redux";
+import { addPost } from "../store";
 import { useForm } from "react-hook-form";
 import aaimage from '../assets/img/SATP_Aa_square-2x.png'
 import Photo from '../assets/img/profile.jpg'
@@ -10,10 +12,6 @@ import icon from '../assets/img/icon.png'
 import emoji from '../assets/img/emoji.png'
 import location from '../assets/img/location.png'
 import gif from '../assets/img/gif.png'
-
-
-
-
 
 const useStyle = createUseStyles({
     wrapper: {
@@ -89,14 +87,19 @@ export const ModalPosts = ({ text, changeText }) => {
         handleSubmit
     } = useForm()
 
+    const dispatch = useDispatch()
     const onSubmit = (e) => {
-        console.log(e)
+        const newPost = {
+            userId: 100,
+            title: "nuovo commento",
+            body: text
+        }
+        dispatch(addPost(newPost))
     }
 
 
     const classes = useStyle();
     return (
-
         <div className={classes.wrapper}>
             <div className={classes.header}>
                 <ProfilePhoto image={Photo} />

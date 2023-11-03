@@ -10,11 +10,12 @@ export const feedSlice = createSlice({
     },
     reducers: {
         addPost: (state, action) => {
-
+            state.value.posts.push(action.payload)
         },
         setPosts: (state, action) => {
 
             state.value = { ...state.value, ...action.payload }
+
         },
         deletePosts: (state, action) => {
 
