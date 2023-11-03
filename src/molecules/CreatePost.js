@@ -55,7 +55,7 @@ const CreatePost = ({ text, callback }) => {
         </div>
         <div className={classes.lower}>
           {PostIcon.map((elem, index) => {
-            return <NavAction key={index} icon={<elem.icon />} />;
+            return <NavAction key={index} icon={<elem.icon />} text={elem.text} />;
           })}
         </div>
       </div>

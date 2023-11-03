@@ -89,8 +89,12 @@ export const ModalPosts = ({ text, changeText }) => {
 
     const dispatch = useDispatch()
     const onSubmit = (e) => {
-
-        dispatch(addPost({ posts: text }))
+        const newPost = {
+            userId: 100,
+            title: "nuovo commento",
+            body: text
+        }
+        dispatch(addPost(newPost))
     }
 
 
