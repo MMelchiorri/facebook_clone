@@ -29,12 +29,11 @@ register();
 
 export const StorySlide = () => {
     const swiperElRef = useRef(null);
-    const swiperSlideRef = useRef(null)
 
     useEffect(() => {
         // Object with parameters
         const swiperParams = {
-            slidesPerView: 3,
+            slidesPerView: 2,
             breakpoints: {
                 640: {
                     slidesPerView: 2,
@@ -62,10 +61,11 @@ export const StorySlide = () => {
         <swiper-container
             ref={swiperElRef}
             navigation="true"
-            init='false'
+            init="false"
+
         >
             {array_of_image.map((item, index) => {
-                return <swiper-slide ref={swiperSlideRef} key={index} init='false'>
+                return <swiper-slide key={index}>
                     <Story image={item.image} profileImage={item.avatar} />
                 </swiper-slide>
             })}
