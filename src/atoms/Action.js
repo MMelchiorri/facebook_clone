@@ -17,7 +17,6 @@ const useStyles = createUseStyles({
         flexDirection: 'column',
         maxWidth: 200
     }
-
 })
 
 const SideBarAction = ({ text, icon, subtitle }) => {

@@ -18,8 +18,6 @@ const useStyle = createUseStyles({
     },
 })
 
-
-
 const Home = () => {
 
     const classes = useStyle()
@@ -36,7 +34,7 @@ const Home = () => {
         }
     }
 
-    useEffect(() => { getPosts() }, [])
+    useEffect(() => { getPosts() })
     return (
         <div>
             <NavBar />

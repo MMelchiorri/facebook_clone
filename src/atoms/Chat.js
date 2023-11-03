@@ -78,8 +78,6 @@ export const Chat = () => {
   const changeStateButton = () => {
     setButtonSelected([!buttonSelected[0], !buttonSelected[1]]);
   };
-
-
   return (
     <div className={classes.chatStyle}>
       <div className={classes.header}>

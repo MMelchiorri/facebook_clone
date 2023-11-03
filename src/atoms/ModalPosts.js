@@ -11,10 +11,6 @@ import emoji from '../assets/img/emoji.png'
 import location from '../assets/img/location.png'
 import gif from '../assets/img/gif.png'
 
-
-
-
-
 const useStyle = createUseStyles({
     wrapper: {
         display: 'flex',
@@ -96,7 +92,6 @@ export const ModalPosts = ({ text, changeText }) => {
 
     const classes = useStyle();
     return (
-
         <div className={classes.wrapper}>
             <div className={classes.header}>
                 <ProfilePhoto image={Photo} />
