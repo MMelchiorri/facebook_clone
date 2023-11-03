@@ -12,6 +12,7 @@ import icon from '../assets/img/icon.png'
 import emoji from '../assets/img/emoji.png'
 import location from '../assets/img/location.png'
 import gif from '../assets/img/gif.png'
+import { useEffect, useRef } from "react";
 
 const useStyle = createUseStyles({
     wrapper: {
@@ -59,7 +60,7 @@ const useStyle = createUseStyles({
     text: {
         maxWidth: 450,
         minHeight: 200,
-        borderStyle: 'none'
+        borderStyle: 'none',
     },
     emoticon: {
         marginTop: 10,
@@ -86,6 +87,13 @@ export const ModalPosts = ({ text, changeText }) => {
         register,
         handleSubmit
     } = useForm()
+
+    const textRef = useRef()
+
+    useEffect(() => {
+        textRef.current.blur()
+    })
+
 
     const dispatch = useDispatch()
     const onSubmit = (e) => {
@@ -114,7 +122,7 @@ export const ModalPosts = ({ text, changeText }) => {
             </div>
             <div className={classes.body} >
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <textarea style={{ border: "none", minWidth: 400, minHeight: 200, resize: 'none' }} defaultValue={text} {...register("text")} onChange={changeText} autoFocus={true} />
+                    <textarea style={{ border: "none", minWidth: 400, minHeight: 200, }} defaultValue={text} {...register("text")} onChange={changeText} autoFocus={true} ref={textRef} />
                     <div className={classes.emoticon}>
                         <img style={{ cursor: 'pointer', width: 38, height: 38 }} src={aaimage} alt="image_icon" />
                         <EmojiIcon />
