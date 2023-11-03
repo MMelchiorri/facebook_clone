@@ -31,17 +31,28 @@ const Feed = () => {
     const userPosts = useSelector(state => state.feed.value.posts)
     const [text, setText] = useState('A cosa stai pensando?')
 
+    const handleModalOpen = () => {
+        setIsPostModal(true)
+        document.body.style.backgroundColor = '#F3F3F4'
+        document.body.style.overflow = 'hidden'
+    }
+
+    const handleModalClose = () => {
+        setIsPostModal(false)
+        document.body.style.overflow = 'visible'
+    }
+
     const changeText = (e) => {
         setText(e.target.value)
     }
     const classes = useStyle()
     return (
-        <div className={classes.wrapper} style={isPostModal ? { overflow: 'hidden' } : { overflow: 'visible' }}>
-            {isPostModal && <Modal title={"Crea Post"} onClose={() => setIsPostModal(!isPostModal)} >
-                <ModalPosts onClose={() => setIsPostModal(!isPostModal)} passedText={text === '' ? 'A cosa stai pensando?' : text} text={text} changeText={changeText} />
+        <div className={classes.wrapper}>
+            {isPostModal && <Modal title={"Crea Post"} onClose={handleModalClose} >
+                <ModalPosts onClose={handleModalClose} passedText={text === '' ? 'A cosa stai pensando?' : text} text={text} changeText={changeText} />
             </Modal>}
             <StorySlide />
-            <CreatePost callback={() => setIsPostModal(!isPostModal)} text={text === '' ? 'A cosa stai pensando?' : text} changeText={changeText} />
+            <CreatePost callback={handleModalOpen} text={text === '' ? 'A cosa stai pensando?' : text} changeText={changeText} />
             {userPosts.map((elem, index) => {
                 return <div key={index} className={classes.postWrapper}>
                     <Posts title={elem.title} body={elem.body} /></div>
