@@ -37,7 +37,9 @@ const NavBar = () => {
     const [openAction, setOpenAction] = useState()
     return (
         <div className={classes.nav}>
-            <FacebookIcon />
+            <div style={{ cursor: 'pointer' }}>
+                <FacebookIcon />
+            </div>
             <span className={classes.navItems}>
                 {NavActions.map((item, index) => {
                     return <NavAction key={index} icon={<item.icon />} />
