@@ -1,6 +1,8 @@
 import { createUseStyles } from "react-jss";
 import { ProfilePhoto } from "./ProfilePhoto";
 import { BackArrow, EmojiIcon, ThreeDots } from "../assets/icons";
+import { useDispatch } from "react-redux";
+import { addPost } from "../store";
 import { useForm } from "react-hook-form";
 import aaimage from '../assets/img/SATP_Aa_square-2x.png'
 import Photo from '../assets/img/profile.jpg'
@@ -85,8 +87,10 @@ export const ModalPosts = ({ text, changeText }) => {
         handleSubmit
     } = useForm()
 
+    const dispatch = useDispatch()
     const onSubmit = (e) => {
-        console.log(e)
+
+        dispatch(addPost({ posts: text }))
     }
 
 

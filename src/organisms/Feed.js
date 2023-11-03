@@ -36,7 +36,7 @@ const Feed = () => {
     }
     const classes = useStyle()
     return (
-        <div className={classes.wrapper}>
+        <div className={classes.wrapper} style={isPostModal ? { overflow: 'hidden' } : { overflow: 'visible' }}>
             {isPostModal && <Modal title={"Crea Post"} onClose={() => setIsPostModal(!isPostModal)} >
                 <ModalPosts onClose={() => setIsPostModal(!isPostModal)} passedText={text === '' ? 'A cosa stai pensando?' : text} text={text} changeText={changeText} />
             </Modal>}
