@@ -10,7 +10,7 @@ const useStyles = createUseStyles({
     nav: {
         padding: 4,
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#FFFFFF',
         boxShadow: '0 1px 2px 0 rgba(0,0,0,.2)',
@@ -23,7 +23,6 @@ const useStyles = createUseStyles({
         display: 'flex',
         justifyContent: 'center',
         gap: 24,
-        flex: 1,
         height: '100%'
     },
     userSection: {

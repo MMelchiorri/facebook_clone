@@ -10,10 +10,7 @@ const useStyles = createUseStyles({
     flexDirection: 'column',
     gap: 24,
     padding: 16,
-    maxwidth: 360,
     height: 'fit-content',
-    position: 'fixed',
-    alignContent: 'end'
   }
 })
 const SideBar = () => {

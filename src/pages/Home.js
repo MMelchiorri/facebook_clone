@@ -10,10 +10,10 @@ import ChatBar from "../organisms/ChatBar"
 
 const useStyle = createUseStyles({
     wrapper: {
-        display: 'grid',
-        gridTemplateColumns: '1fr auto 1fr',
-        alignContent: 'center',
-        marginTop: 60
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: 60,
+        gap: 60,
     },
     innerWrapper: {
         marginTop: 60
