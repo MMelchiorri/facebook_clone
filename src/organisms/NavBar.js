@@ -10,11 +10,12 @@ const useStyles = createUseStyles({
     nav: {
         padding: 4,
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#FFFFFF',
         boxShadow: '0 1px 2px 0 rgba(0,0,0,.2)',
         position: 'fixed',
+        top: 0,
         width: '100%',
         zIndex: 1
     },
@@ -22,7 +23,6 @@ const useStyles = createUseStyles({
         display: 'flex',
         justifyContent: 'center',
         gap: 24,
-        flex: 1,
         height: '100%'
     },
     userSection: {
@@ -37,7 +37,9 @@ const NavBar = () => {
     const [openAction, setOpenAction] = useState()
     return (
         <div className={classes.nav}>
-            <FacebookIcon />
+            <div style={{ cursor: 'pointer' }}>
+                <FacebookIcon />
+            </div>
             <span className={classes.navItems}>
                 {NavActions.map((item, index) => {
                     return <NavAction key={index} icon={<item.icon />} />

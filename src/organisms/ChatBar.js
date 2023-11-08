@@ -11,8 +11,6 @@ const useStyles = createUseStyles({
         display: 'flex',
         flexDirection: 'column',
         position: 'fixed',
-        top: 120,
-        left: 1200,
     },
     container: {
         display: 'flex',
