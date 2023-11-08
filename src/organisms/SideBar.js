@@ -13,6 +13,7 @@ const useStyles = createUseStyles({
     maxwidth: 360,
     height: 'fit-content',
     position: 'fixed',
+    alignContent: 'end'
   }
 })
 const SideBar = () => {

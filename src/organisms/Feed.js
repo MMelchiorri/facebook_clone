@@ -12,8 +12,6 @@ const useStyle = createUseStyles({
         width: '100%',
         maxWidth: 600,
         padding: '24px',
-        marginLeft: 360
-
     },
     postWrapper: {
         display: 'flex',

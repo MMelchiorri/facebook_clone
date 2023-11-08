@@ -15,6 +15,7 @@ const useStyles = createUseStyles({
         backgroundColor: '#FFFFFF',
         boxShadow: '0 1px 2px 0 rgba(0,0,0,.2)',
         position: 'fixed',
+        top: 0,
         width: '100%',
         zIndex: 1
     },

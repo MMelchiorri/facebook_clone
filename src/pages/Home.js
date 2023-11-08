@@ -11,7 +11,9 @@ import ChatBar from "../organisms/ChatBar"
 const useStyle = createUseStyles({
     wrapper: {
         display: 'grid',
-        gridTemplateColumns: '1fr 2fr 1fr'
+        gridTemplateColumns: '1fr auto 1fr',
+        alignContent: 'center',
+        marginTop: 60
     },
     innerWrapper: {
         marginTop: 60
@@ -39,9 +41,13 @@ const Home = () => {
         <div>
             <NavBar />
             <div className={classes.wrapper}>
-                <div className={classes.innerWrapper}>
+                <div>
                     <SideBar />
+                </div>
+                <div>
                     <Feed />
+                </div>
+                <div>
                     <ChatBar />
                 </div>
             </div>
